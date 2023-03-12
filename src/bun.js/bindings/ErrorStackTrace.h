@@ -144,7 +144,7 @@ public:
 
     /* This is based on JSC::Interpreter::getStackTrace, but skips native (non js and not wasm)
      * frames, which is what v8 does. Note that we could have just called JSC::Interpreter::getStackTrace
-     * and and filter it later (or let our callers filter it), but that would have been both inefficient, and
+     * and filter it later (or let our callers filter it), but that would have been both inefficient, and
      * problematic with the requested stack size limit (as it should only refer to the non-native frames,
      * thus we would have needed to pass a large limit to JSC::Interpreter::getStackTrace, and filter out
      * maxStackSize non-native frames).
