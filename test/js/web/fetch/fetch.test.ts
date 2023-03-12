@@ -586,7 +586,7 @@ describe("Bun.file", () => {
     );
   });
 
-  describe("non-existent file throws", () => {
+  describe("nonexistent file throws", () => {
     const path = join(tmp_dir, "does-not-exist");
 
     forEachMethod(m => async () => {

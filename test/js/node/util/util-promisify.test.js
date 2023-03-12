@@ -65,7 +65,7 @@ describe("util.promisify", () => {
         }),
       );
 
-      const promiseFileDontExist = stat("/dontexist");
+      const promiseFileDontExist = stat("/nonexistent");
       promiseFileDontExist.catch(
         common.mustCall(error => {
           assert(error.message.includes("ENOENT: no such file or directory, stat"));

@@ -202,7 +202,7 @@ describe("Headers", () => {
       headers.delete("user-agent");
       expect(headers.get("user-agent")).toBeNull();
     });
-    test("can delete header with non-existent name", () => {
+    test("can delete header with nonexistent name", () => {
       const headers = new Headers();
       headers.delete("age");
       expect(headers.get("age")).toBeNull();

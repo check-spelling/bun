@@ -72,7 +72,7 @@ declare module "domain" {
      * d.run(() => {
      *   process.nextTick(() => {
      *     setTimeout(() => { // Simulating some various async stuff
-     *       fs.open('non-existent file', 'r', (er, fd) => {
+     *       fs.open('nonexistent file', 'r', (er, fd) => {
      *         if (er) throw er;
      *         // proceed...
      *       });
