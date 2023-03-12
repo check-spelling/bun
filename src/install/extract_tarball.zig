@@ -313,7 +313,7 @@ fn extract(this: *const ExtractTarball, tgz_bytes: []const u8) !Install.ExtractD
         return error.InstallFailed;
     };
 
-    // We return a resolved absolute absolute file path to the cache dir.
+    // We return a resolved absolute file path to the cache dir.
     // To get that directory, we open the directory again.
     var final_dir = cache_dir.openDirZ(folder_name, .{}, true) catch |err| {
         this.package_manager.log.addErrorFmt(
