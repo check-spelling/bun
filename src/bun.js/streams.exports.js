@@ -5390,7 +5390,7 @@ function createNativeStreamReadable(nativeType, Readable) {
     }
 
     // maxToRead can be the highWaterMark (by default) or the remaining amount of the stream to read
-    // This is so the the consumer of the stream can terminate the stream early if they know
+    // This is so the consumer of the stream can terminate the stream early if they know
     // how many bytes they want to read (ie. when reading only part of a file)
     #getRemainingChunk(maxToRead = this.#highWaterMark) {
       var chunk = this.#remainingChunk;
