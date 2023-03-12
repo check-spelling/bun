@@ -724,7 +724,7 @@ fn diffLinesToCharsMunge(
     var line: []const u8 = "";
     var chars = ArrayListUnmanaged(u8){};
     // Walk the text, pulling out a Substring for each line.
-    // text.split('\n') would would temporarily double our memory footprint.
+    // text.split('\n') would temporarily double our memory footprint.
     // Modifying text would create many large strings to garbage collect.
     while (line_end < @intCast(isize, text.len) - 1) {
         line_end = b: {
