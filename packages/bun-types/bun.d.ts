@@ -484,7 +484,7 @@ declare module "bun" {
          * On Linux, `system` is the same as `getaddrinfo`.
          *
          * `c-ares` is more performant on Linux in some high concurrency
-         * situations, but it lacks support support for mDNS (`*.local`,
+         * situations, but it lacks support for mDNS (`*.local`,
          * `*.localhost` domains) along with some other advanced features. If
          * you run into issues using `c-ares`, you should try `system`. If the
          * hostname ends with `.local` or `.localhost`, Bun will automatically
