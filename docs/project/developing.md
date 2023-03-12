@@ -202,7 +202,7 @@ You probably won't need to run that one much.
 
 Certain modules like `node:fs`, `node:path`, `node:stream`, and `bun:sqlite` are implemented in JavaScript. These live in `src/bun.js/*.exports.js` files.
 
-While Bun is in beta, you can modify them at runtime in release builds via the environment variable `BUN_OVERRIDE_MODULE_PATH`. When set, Bun will look in the override directory for `<name>.exports.js` before checking the files from `src/bun.js` (which are now baked in to the binary). This lets you test changes to the ESM modules without needing to re-compile Bun.
+While Bun is in beta, you can modify them at runtime in release builds via the environment variable `BUN_OVERRIDE_MODULE_PATH`. When set, Bun will look in the override directory for `<name>.exports.js` before checking the files from `src/bun.js` (which are now baked into the binary). This lets you test changes to the ESM modules without needing to re-compile Bun.
 
 ## Troubleshooting
 

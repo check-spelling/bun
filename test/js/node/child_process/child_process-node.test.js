@@ -245,7 +245,7 @@ describe("child_process cwd", () => {
     });
 
     // TODO: Test exit events
-    // // Can't assert callback, as stayed in to API:
+    // // Can't assert callback, as stayed into API:
     // // _The 'exit' event may or may not fire after an error has occurred._
     child.on("exit", (code, signal) => {
       try {
