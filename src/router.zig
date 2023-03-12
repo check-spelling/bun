@@ -1566,7 +1566,7 @@ test "Pattern Match" {
     if (TestList.run(optional_catch_all) > 0) try expect(false);
 }
 
-test "Github API Route Loader" {
+test "GitHub API Route Loader" {
     var server = MockServer{};
     var ctx = MockRequestContextType{
         .url = try URLPath.parse("/hi"),
