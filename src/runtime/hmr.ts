@@ -1284,7 +1284,7 @@ if (typeof window !== "undefined") {
             if (oldModule && oldModule._update !== thisMod._update) {
               // ESM-based HMR has a disadvantage against CommonJS HMR
               // ES Namespace objects are not [[Configurable]]
-              // That means we have to loop through all previous versions of updated modules that that have unique export names
+              // That means we have to loop through all previous versions of updated modules that have unique export names
               // and updates those exports specifically
               // Otherwise, changes will not be reflected properly
               // However, we only need to loop through modules that add or remove exports, i.e. those are ones which have "real" exports
