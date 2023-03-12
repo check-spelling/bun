@@ -112,7 +112,7 @@ describe("util.promisify", () => {
     );
   });
 
-  it("should call custom promised promised function with proper args", () => {
+  it("should call custom promised function with proper args", () => {
     const firstValue = 5;
     const secondValue = 17;
     var called = false;
