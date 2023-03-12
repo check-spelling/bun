@@ -9384,7 +9384,7 @@ SQLITE_API int sqlite3_wal_checkpoint_v2(
 */
 #define SQLITE_CHECKPOINT_PASSIVE  0  /* Do as much as possible w/o blocking */
 #define SQLITE_CHECKPOINT_FULL     1  /* Wait for writers, then checkpoint */
-#define SQLITE_CHECKPOINT_RESTART  2  /* Like FULL but wait for for readers */
+#define SQLITE_CHECKPOINT_RESTART  2  /* Like FULL but wait for readers */
 #define SQLITE_CHECKPOINT_TRUNCATE 3  /* Like RESTART but also truncate WAL */
 
 /*
