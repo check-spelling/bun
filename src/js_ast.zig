@@ -758,7 +758,7 @@ pub const Symbol = struct {
 
         // This has special merging behavior. You're allowed to re-declare these
         // symbols more than once in the same scope. These symbols are also hoisted
-        // out of the scope they are declared in to the closest containing function
+        // from the scope where they are declared to the closest containing function
         // or module scope. These are the symbols with this kind:
         //
         // - Function arguments
