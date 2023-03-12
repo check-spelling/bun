@@ -1143,11 +1143,11 @@ const HTTPCallbackPair = .{ *AsyncHTTP, HTTPClientResult };
 pub const HTTPChannel = @import("./sync.zig").Channel(HTTPCallbackPair, .{ .Static = 1000 });
 // 32 pointers much cheaper than 1000 pointers
 const SingleHTTPChannel = struct {
-    const SingleHTTPCHannel_ = @import("./sync.zig").Channel(HTTPClientResult, .{ .Static = 8 });
-    channel: SingleHTTPCHannel_,
+    const SingleHTTPChannel_ = @import("./sync.zig").Channel(HTTPClientResult, .{ .Static = 8 });
+    channel: SingleHTTPChannel_,
     pub fn reset(_: *@This()) void {}
     pub fn init() SingleHTTPChannel {
-        return SingleHTTPChannel{ .channel = SingleHTTPCHannel_.init() };
+        return SingleHTTPChannel{ .channel = SingleHTTPChannel_.init() };
     }
 };
 
