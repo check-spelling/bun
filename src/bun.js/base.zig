@@ -1648,7 +1648,7 @@ pub fn createError(
         var buf = std.fmt.allocPrint(allocator, fmt, args) catch unreachable;
         var zig_str = JSC.ZigString.init(buf);
         zig_str.detectEncoding();
-        // it alwayas clones
+        // it always clones
         const res = zig_str.toErrorInstance(globalThis);
         allocator.free(buf);
         return res;
