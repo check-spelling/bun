@@ -1461,10 +1461,10 @@ extern "C"
     if (ssl)
     {
       uWS::HttpResponse<true> *uwsRes = (uWS::HttpResponse<true> *)res;
-      uwsRes->setWriteOffset(offset); //TODO: when updated to master this will bechanged to overrideWriteOffset
+      uwsRes->setWriteOffset(offset); //TODO: when updated to master this will be changed to overrideWriteOffset
     } else {
       uWS::HttpResponse<false> *uwsRes = (uWS::HttpResponse<false> *)res;
-      uwsRes->setWriteOffset(offset); //TODO: when updated to master this will bechanged to overrideWriteOffset
+      uwsRes->setWriteOffset(offset); //TODO: when updated to master this will be changed to overrideWriteOffset
     }
   }
   
