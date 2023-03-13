@@ -2317,7 +2317,7 @@ pub fn escapeHTMLForUTF16Input(allocator: std.mem.Allocator, utf16: []const u16)
                             }
                         }
 
-                        // edgecase: code point width could exceed asdcii_u16_vector_size
+                        // edgecase: code point width could exceed ascii_u16_vector_size
                         remaining = remaining[i..];
                         break :scan_and_allocate_lazily;
                     }
