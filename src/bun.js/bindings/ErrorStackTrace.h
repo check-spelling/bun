@@ -18,7 +18,7 @@ namespace Zig {
 
 /* JSCStackFrame is an alternative to JSC::StackFrame, which provides the following advantages\changes:
  * - Also hold the call frame (ExecState). This is mainly used by CallSite to get "this value".
- * - More detailed and v8 compatible "source offsets" caculations: JSC::StackFrame only provides the
+ * - More detailed and v8 compatible "source offsets" calculations: JSC::StackFrame only provides the
  *   line number and column numbers. It's column calculation seems to be different than v8's column.
  *   According to v8's unit tests, it seems that their column number points to the beginning of
  *   the expression which raised the exception, while in JSC the column returned by computeLineAndColumn
