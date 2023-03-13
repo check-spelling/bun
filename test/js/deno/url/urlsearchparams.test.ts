@@ -28,7 +28,7 @@ Deno.test(function urlSearchParamsWithQuotes() {
     const searchParams = new URLSearchParams(init).toString();
     assertEquals(searchParams, "str=%27hello+world%27");
 });
-Deno.test(function urlSearchParamsWithBraket() {
+Deno.test(function urlSearchParamsWithBracket() {
     const init = [
         [
             "str",
