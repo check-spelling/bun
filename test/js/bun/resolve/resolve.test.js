@@ -34,7 +34,7 @@ it("#imports", async () => {
     expect(exception.name).toBe("ResolveError");
   }
 
-  // Chcek that package-json-imports/#foo doesn't work
+  // Check that package-json-imports/#foo doesn't work
   try {
     await import.meta.resolve("package-json-imports/#foo");
     throw new Error("Test failed");
