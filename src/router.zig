@@ -1476,10 +1476,10 @@ test "Pattern Match" {
         },
 
         .@"[teamSlug]/lemon/[...project]" = .{
-            "team/lemon/lemon-bacon-cheese/wow/brocollini",
+            "team/lemon/lemon-bacon-cheese/wow/broccolini",
             &[_]Entry{
                 .{ .name = "teamSlug", .value = "team" },
-                .{ .name = "project", .value = "lemon-bacon-cheese/wow/brocollini" },
+                .{ .name = "project", .value = "lemon-bacon-cheese/wow/broccolini" },
             },
         },
 
