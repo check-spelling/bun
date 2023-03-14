@@ -1,6 +1,6 @@
 [test]
 # Large monorepos (like Bun) may want to specify the test directory more specifically 
-# By default, `bun test` scans every single folder recurisvely which, if you
+# By default, `bun test` scans every single folder recursively which, if you
 # have a gigantic submodule (like WebKit), it has to do lots of directory
 # traversals
 #
