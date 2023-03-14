@@ -3175,7 +3175,7 @@ pub fn NewPrinter(
                     }
                 },
                 .s_class => |s| {
-                    // Give an extra newline for readaiblity
+                    // Give an extra newline for readability
                     if (prev_stmt_tag != .s_empty) {
                         p.printNewline();
                     }
@@ -3349,7 +3349,7 @@ pub fn NewPrinter(
                         }
                     }
 
-                    // Give an extra newline for readaiblity
+                    // Give an extra newline for readability
                     if (!prev_stmt_tag.isExportLike()) {
                         p.printNewline();
                     }
