@@ -2,6 +2,7 @@
 
 This package lets you use Next.js 12.2 with bun. This readme assumes you already installed bun.
 
+
 To start a new project:
 
 ```bash
