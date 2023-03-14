@@ -2589,7 +2589,7 @@ pub fn handleResponseMetadata(
             return error.ConnectionRefused;
         }
 
-        //signal to continue the proxing
+        //signal to continue the proxying
         return true;
     }
 
