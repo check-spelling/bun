@@ -13226,7 +13226,7 @@ fn NewParser_(
                     e_.must_keep_due_to_with_stmt = result.is_inside_with_scope;
                     e_.ref = result.ref;
 
-                    // TODO: fix the underyling cause here
+                    // TODO: fix the underlying cause here
                     // The problem seems to be that result.ref.innerIndex() is not always set.
 
                     // Handle assigning to a constant
