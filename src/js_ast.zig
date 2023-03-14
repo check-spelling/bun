@@ -390,7 +390,7 @@ pub const Binding = struct {
                 }, loc);
             },
             else => {
-                Global.panic("Interanl error", .{});
+                Global.panic("Internal error", .{});
             },
         }
     }
