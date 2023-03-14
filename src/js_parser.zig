@@ -6684,7 +6684,7 @@ fn NewParser_(
             try item_refs.ensureUnusedCapacity(count_excluding_namespace);
             // Even though we allocate ahead of time here
             // we cannot use putAssumeCapacity because a symbol can have existing links
-            // those may write to this hash table, so this estimate may be innaccurate
+            // those may write to this hash table, so this estimate may be inaccurate
             try p.is_import_item.ensureUnusedCapacity(p.allocator, count_excluding_namespace);
             var remap_count: u32 = 0;
             // Link the default item to the namespace
