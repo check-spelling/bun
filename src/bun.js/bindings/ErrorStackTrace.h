@@ -98,7 +98,7 @@ public:
         return m_bytecodeIndex;
     }
 
-    // Returns null if can't retreive the source positions
+    // Returns null if can't retrieve the source positions
     SourcePositions* getSourcePositions();
 
     bool isWasmFrame() const { return m_isWasmFrame; }
