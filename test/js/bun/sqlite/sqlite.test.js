@@ -330,7 +330,7 @@ it("db.query()", () => {
     JSON.stringify([{ id: 1, name: "Hello" }]),
   );
 
-  // throws if insufficeint arguments
+  // throws if insufficient arguments
   try {
     db.query("SELECT * FROM test where (name = ? OR name = ?)").all("Hello");
   } catch (e) {
