@@ -373,7 +373,7 @@ if (typeof window !== "undefined") {
           if (!update.node || update.node.tagName === "HTML") {
             update.sheet.replaceSync(this.decoder.decode(bytes));
           } else if (update.node.tagName === "LINK" || update.node.tagName === "STYLE") {
-            // This might cause CSS specifity issues....
+            // This might cause CSS specificity issues....
             // I'm not 100% sure this is a safe operation
             const sheet = new CSSStyleSheet();
             const decoded = this.decoder.decode(bytes);
