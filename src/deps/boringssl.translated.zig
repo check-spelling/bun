@@ -1493,7 +1493,7 @@ pub extern fn PKCS5_PBKDF2_HMAC_SHA1(password: [*c]const u8, password_len: usize
 /// as described below.
 ///
 /// |N|, |r|, and |p| are as described in RFC 7914 section 6. They determine the
-/// cost of the operation. If |max_mem| is zero, a defult limit of 32MiB will be
+/// cost of the operation. If |max_mem| is zero, a default limit of 32MiB will be
 /// used.
 ///
 /// The parameters are considered invalid under any of the following conditions:
