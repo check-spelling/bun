@@ -289,7 +289,7 @@ pub const Bin = extern struct {
             _ = C.fchmodat(folder, target, umask | 0o777, 0);
         }
 
-        fn setSimlinkAndPermissions(this: *Linker, target_path: [:0]const u8, dest_path: [:0]const u8) void {
+        fn setSymlinkAndPermissions(this: *Linker, target_path: [:0]const u8, dest_path: [:0]const u8) void {
             std.os.symlinkatZ(target_path, this.root_node_modules_folder, dest_path) catch |err| {
                 // Silently ignore PathAlreadyExists
                 // Most likely, the symlink was already created by another package
@@ -394,7 +394,7 @@ pub const Bin = extern struct {
                     from_remain[0] = 0;
                     var dest_path: [:0]u8 = target_buf[0 .. @ptrToInt(from_remain.ptr) - @ptrToInt(&target_buf) :0];
 
-                    this.setSimlinkAndPermissions(target_path, dest_path);
+                    this.setSymlinkAndPermissions(target_path, dest_path);
                 },
                 .named_file => {
                     var target = this.bin.value.named_file[1].slice(this.string_buf);
@@ -414,7 +414,7 @@ pub const Bin = extern struct {
                     from_remain[0] = 0;
                     var dest_path: [:0]u8 = target_buf[0 .. @ptrToInt(from_remain.ptr) - @ptrToInt(&target_buf) :0];
 
-                    this.setSimlinkAndPermissions(target_path, dest_path);
+                    this.setSymlinkAndPermissions(target_path, dest_path);
                 },
                 .map => {
                     var extern_string_i: u32 = this.bin.value.map.off;
@@ -444,7 +444,7 @@ pub const Bin = extern struct {
                         from_remain[0] = 0;
                         var dest_path: [:0]u8 = target_buf[0 .. @ptrToInt(from_remain.ptr) - @ptrToInt(&target_buf) :0];
 
-                        this.setSimlinkAndPermissions(target_path, dest_path);
+                        this.setSymlinkAndPermissions(target_path, dest_path);
                     }
                 },
                 .dir => {
@@ -493,7 +493,7 @@ pub const Bin = extern struct {
                                 else
                                     std.fmt.bufPrintZ(&dest_buf, "{s}", .{entry.name}) catch continue;
 
-                                this.setSimlinkAndPermissions(from_path, to_path);
+                                this.setSymlinkAndPermissions(from_path, to_path);
                             },
                             else => {},
                         }
