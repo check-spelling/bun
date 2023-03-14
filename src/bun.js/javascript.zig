@@ -263,7 +263,7 @@ export fn Bun__readOriginTimer(vm: *JSC.VirtualMachine) u64 {
 }
 
 export fn Bun__readOriginTimerStart(vm: *JSC.VirtualMachine) f64 {
-    // timespce to milliseconds
+    // timespace to milliseconds
     return @floatCast(f64, (@intToFloat(f64, vm.origin_timestamp) + JSC.VirtualMachine.origin_relative_epoch) / 1_000_000.0);
 }
 
