@@ -68,7 +68,7 @@ const RefHashCtx = @import("./ast/base.zig").RefHashCtx;
 
 pub const StringHashMap = bun.StringHashMap;
 pub const AutoHashMap = bun.AutoHashMap;
-const StringHashMapUnamanged = bun.StringHashMapUnmanaged;
+const StringHashMapUnmanaged = bun.StringHashMapUnmanaged;
 const ObjectPool = @import("./pool.zig").ObjectPool;
 const NodeFallbackModules = @import("./node_fallbacks.zig");
 
@@ -3697,7 +3697,7 @@ fn NewParser_(
         should_fold_numeric_constants: bool = false,
         emitted_namespace_vars: RefMap = RefMap{},
         is_exported_inside_namespace: RefRefMap = .{},
-        known_enum_values: Map(Ref, StringHashMapUnamanged(f64)) = .{},
+        known_enum_values: Map(Ref, StringHashMapUnmanaged(f64)) = .{},
         local_type_names: StringBoolMap = StringBoolMap{},
 
         // This is the reference to the generated function argument for the namespace,
@@ -16441,7 +16441,7 @@ fn NewParser_(
 
                     // Track values so they can be used by constant folding. We need to follow
                     // links here in case the enum was merged with a preceding namespace
-                    var values_so_far = StringHashMapUnamanged(f64){};
+                    var values_so_far = StringHashMapUnmanaged(f64){};
 
                     p.known_enum_values.put(allocator, data.name.ref orelse p.panic("Expected data.name.ref", .{}), values_so_far) catch unreachable;
                     p.known_enum_values.put(allocator, data.arg, values_so_far) catch unreachable;
