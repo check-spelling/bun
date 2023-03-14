@@ -41,14 +41,14 @@ console.log("Is it a bug or a feature that formatting numbers like %d is colored
 
 console.log("String %s should be 2nd word, 456 == %s and percent s %s == %s", "123", "456", "%s", "What", "okay");
 
-const infinteLoop = {
+const infiniteLoop = {
   foo: {
     name: "baz",
   },
   bar: {},
 };
 
-infinteLoop.bar = infinteLoop;
-console.log(infinteLoop, "am");
+infiniteLoop.bar = infiniteLoop;
+console.log(infiniteLoop, "am");
 
 console.log(new Array(4).fill({}));
