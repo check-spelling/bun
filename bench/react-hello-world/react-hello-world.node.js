@@ -8465,11 +8465,11 @@ https://reactjs.org/link/unsafe-component-lifecycles`,
                 "%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().",
                 u,
               ),
-            typeof t.componentWillRecieveProps == "function" &&
-              c("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", u),
-            typeof t.UNSAFE_componentWillRecieveProps == "function" &&
+            typeof t.componentWillReceiveProps == "function" &&
+              c("%s has a method called componentWillReceiveProps(). Did you mean componentWillReceiveProps()?", u),
+            typeof t.UNSAFE_componentWillReceiveProps == "function" &&
               c(
-                "%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
+                "%s has a method called UNSAFE_componentWillReceiveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
                 u,
               );
           var g = t.props !== l;
@@ -12828,11 +12828,11 @@ https://reactjs.org/link/unsafe-component-lifecycles`,
                 "%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().",
                 d,
               ),
-            typeof o.componentWillRecieveProps == "function" &&
-              c("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", d),
-            typeof o.UNSAFE_componentWillRecieveProps == "function" &&
+            typeof o.componentWillReceiveProps == "function" &&
+              c("%s has a method called componentWillReceiveProps(). Did you mean componentWillReceiveProps()?", d),
+            typeof o.UNSAFE_componentWillReceiveProps == "function" &&
               c(
-                "%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
+                "%s has a method called UNSAFE_componentWillReceiveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
                 d,
               );
           var r = o.props !== f;
