@@ -740,7 +740,7 @@ pub const FileSystem = struct {
                 var hash_bytes: [32]u8 = undefined;
                 // We shouldn't just read the contents of the ModKey into memory
                 // The hash should be deterministic across computers and operating systems.
-                // inode is non-deterministic across volumes within the same compuiter
+                // inode is non-deterministic across volumes within the same computer
                 // so if we're not going to do a full content hash, we should use mtime and size.
                 // even mtime is debatable.
                 var hash_bytes_remain: []u8 = hash_bytes[0..];
