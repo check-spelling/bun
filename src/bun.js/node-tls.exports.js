@@ -54,28 +54,28 @@ const TLSSocket = (function (InternalTLSSocket) {
     encrypted = true;
 
     exportKeyingMaterial() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
     setMaxSendFragment() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
     setServername() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
     setSession() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
     getPeerCertificate() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
     getCertificate() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
     getPeerX509Certificate() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
     getX509Certificate() {
-      throw Error("Not implented in Bun yet");
+      throw Error("Not implemented in Bun yet");
     }
 
     emit(event, args) {
