@@ -1298,7 +1298,7 @@ bindings: $(DEBUG_OBJ_DIR) $(DEBUG_OBJ_FILES) $(DEBUG_WEBCORE_OBJ_FILES) $(DEBUG
 .PHONY: jsc-bindings-mac
 jsc-bindings-mac: bindings
 
-# lInux only
+# Linux only
 MIMALLOC_VALGRIND_ENABLED_FLAG =
 
 ifeq ($(OS_NAME),linux)
