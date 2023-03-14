@@ -2479,7 +2479,7 @@ pub fn DOMCall(
         pub const name = class_name ++ "__" ++ functionName;
 
         // Zig doesn't support @frameAddress(1)
-        // so we have to add a small wrapper fujnction
+        // so we have to add a small wrapper function
         pub fn slowpath(
             globalObject: *JSC.JSGlobalObject,
             thisValue: JSC.JSValue,
