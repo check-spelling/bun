@@ -904,7 +904,7 @@ bool isNoCORSSafelistedRequestHeaderName(const String& name)
 }
 
 // Implements <https://fetch.spec.whatwg.org/#privileged-no-cors-request-header-name>.
-bool isPriviledgedNoCORSRequestHeaderName(const String& name)
+bool isPrivilegedNoCORSRequestHeaderName(const String& name)
 {
     return equalLettersIgnoringASCIICase(name, "range"_s);
 }
