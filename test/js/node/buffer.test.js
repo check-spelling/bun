@@ -1777,7 +1777,7 @@ it("Buffer.from (Node.js test/test-buffer-from.js)", () => {
   });
 
   expect(() => Buffer.allocUnsafe(10)).not.toThrow(); // Should not throw.
-  expect(() => Buffer.from("deadbeaf", "hex")).not.toThrow(); // Should not throw.
+  expect(() => Buffer.from("deadbeef", "hex")).not.toThrow(); // Should not throw.
 });
 
 it("new Buffer() (Node.js test/test-buffer-new.js)", () => {
