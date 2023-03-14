@@ -265,7 +265,7 @@ ALWAYS_INLINE JSC::JSString* JSCStackFrame::retrieveFunctionName()
         return JSC::asString(displayName);
     }
 
-    // Our addition - if there's no "dispalyName" property, try the "name" property
+    // Our addition - if there's no "displayName" property, try the "name" property
     JSC::JSValue name = calleeAsObject->getDirect(m_vm, m_vm.propertyNames->name);
     if (name && isJSString(name)) {
         return JSC::asString(name);

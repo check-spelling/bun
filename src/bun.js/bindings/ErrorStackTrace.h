@@ -112,7 +112,7 @@ private:
      * the same logic, which is to first try the function's "display name", and if it's not defined,
      * the function's name. In JSC, StackFrame::functionName uses JSC::getCalculatedDisplayName,
      * which will internally call the JSFunction\InternalFunction's calculatedDisplayName function.
-     * But, those function don't check the function's "name" property if the "dispaly name" isn't defined.
+     * But, those function don't check the function's "name" property if the "display name" isn't defined.
      * See JSFunction::name()'s and InternalFunction::name()'s implementation. According to v8's unit tests,
      * v8 does check the name property in StackFrame::GetFunctionName (see the last part of the
      * "CaptureStackTrace" test in test-api.cc).
