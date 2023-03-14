@@ -4094,7 +4094,7 @@ pub fn NewPrinter(
 
                                 const last = p.import_records.len - 1;
                                 var needs_comma = false;
-                                // This might be a determinsim issue
+                                // This might be a determinism issue
                                 // But, it's not random
                                 skip: for (p.import_records, 0..) |_record, i| {
                                     if (!_record.is_bundled or _record.module_id == 0) continue;
