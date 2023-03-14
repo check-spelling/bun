@@ -36,5 +36,20 @@ jobs:
       - name: Generate package
         run: bun run build
 
+      - name: Shim Prettier
+        run: |
+          prettier_dir=$(mktemp -d)
+          cat > "$prettier_dir/prettier" <<EOF
+          #!/bin/sh
+          bun prettier "$@"
+          EOF
+          chmod +x "$prettier_dir/prettier"
+          draft=$(mktemp)
+          (
+            grep -v '^PATH=' "$GITHUB_PATH" || true
+            echo "PATH=$PATH:$prettier_dir"
+          ) > "$draft"
+          cat "$draft" > "$GITHUB_PATH"
+
       - name: Tests
         run: bun run test
