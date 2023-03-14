@@ -51,7 +51,7 @@ pub fn validatePath(
         return "";
     }
     const paths = [_]string{ cwd, rel_path };
-    // TODO: switch to getFdPath()-based implemetation
+    // TODO: switch to getFdPath()-based implementation
     const out = std.fs.path.resolve(allocator, &paths) catch |err| {
         log.addErrorFmt(
             null,
