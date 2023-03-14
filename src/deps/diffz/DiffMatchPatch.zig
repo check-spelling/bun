@@ -805,7 +805,7 @@ fn diffCleanupMerge(allocator: std.mem.Allocator, diffs: *DiffList) DiffError!vo
                 // Upon reaching an equality, check for prior redundancies.
                 if (count_delete + count_insert > 1) {
                     if (count_delete != 0 and count_insert != 0) {
-                        // Factor out any common prefixies.
+                        // Factor out any common prefixes.
                         common_length = diffCommonPrefix(text_insert.items, text_delete.items);
                         if (common_length != 0) {
                             if ((pointer - count_delete - count_insert) > 0 and
