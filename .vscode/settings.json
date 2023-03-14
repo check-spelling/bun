@@ -192,7 +192,6 @@
     "cinttypes": "cpp",
     "variant": "cpp",
     "sysctl.h": "c",
-    "interface_adresses.h": "c",
     "interface_addresses.h": "c",
     "ctype.h": "c",
     "ethernet.h": "c",
