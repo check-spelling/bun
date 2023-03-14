@@ -18,7 +18,7 @@ namespace Zig {
 
 /* JSCStackFrame is an alternative to JSC::StackFrame, which provides the following advantages\changes:
  * - Also hold the call frame (ExecState). This is mainly used by CallSite to get "this value".
- * - More detailed and v8 compatible "source offsets" caculations: JSC::StackFrame only provides the
+ * - More detailed and v8 compatible "source offsets" calculations: JSC::StackFrame only provides the
  *   line number and column numbers. It's column calculation seems to be different than v8's column.
  *   According to v8's unit tests, it seems that their column number points to the beginning of
  *   the expression which raised the exception, while in JSC the column returned by computeLineAndColumn
@@ -34,7 +34,7 @@ namespace Zig {
  * - String properties are exposed (and cached) as JSStrings, instead of WTF::String.
  * - Helper functions like isEval and isConstructor.
  *
- * Note that this is not a heap allocated, garbage collected, JSCell. It must be stack allocated, as it doens't
+ * Note that this is not a heap allocated, garbage collected, JSCell. It must be stack allocated, as it doesn't
  * use any write barriers and rely on the GC to see the stored JSC object pointers on the stack.
  */
 class JSCStackFrame {
@@ -98,7 +98,7 @@ public:
         return m_bytecodeIndex;
     }
 
-    // Returns null if can't retreive the source positions
+    // Returns null if can't retrieve the source positions
     SourcePositions* getSourcePositions();
 
     bool isWasmFrame() const { return m_isWasmFrame; }
@@ -112,7 +112,7 @@ private:
      * the same logic, which is to first try the function's "display name", and if it's not defined,
      * the function's name. In JSC, StackFrame::functionName uses JSC::getCalculatedDisplayName,
      * which will internally call the JSFunction\InternalFunction's calculatedDisplayName function.
-     * But, those function don't check the function's "name" property if the "dispaly name" isn't defined.
+     * But, those function don't check the function's "name" property if the "display name" isn't defined.
      * See JSFunction::name()'s and InternalFunction::name()'s implementation. According to v8's unit tests,
      * v8 does check the name property in StackFrame::GetFunctionName (see the last part of the
      * "CaptureStackTrace" test in test-api.cc).
@@ -144,7 +144,7 @@ public:
 
     /* This is based on JSC::Interpreter::getStackTrace, but skips native (non js and not wasm)
      * frames, which is what v8 does. Note that we could have just called JSC::Interpreter::getStackTrace
-     * and and filter it later (or let our callers filter it), but that would have been both inefficient, and
+     * and filter it later (or let our callers filter it), but that would have been both inefficient, and
      * problematic with the requested stack size limit (as it should only refer to the non-native frames,
      * thus we would have needed to pass a large limit to JSC::Interpreter::getStackTrace, and filter out
      * maxStackSize non-native frames).

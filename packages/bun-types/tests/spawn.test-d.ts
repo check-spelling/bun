@@ -1,7 +1,7 @@
 Bun.spawn(["echo", "hello"]);
 {
   const proc = Bun.spawn(["echo", "hello"], {
-    cwd: "./path/to/subdir", // specify a working direcory
+    cwd: "./path/to/subdir", // specify a working directory
     env: { ...process.env, FOO: "bar" }, // specify environment variables
     onExit(proc, exitCode, signalCode, error) {
       // exit handler

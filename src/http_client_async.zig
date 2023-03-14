@@ -1143,11 +1143,11 @@ const HTTPCallbackPair = .{ *AsyncHTTP, HTTPClientResult };
 pub const HTTPChannel = @import("./sync.zig").Channel(HTTPCallbackPair, .{ .Static = 1000 });
 // 32 pointers much cheaper than 1000 pointers
 const SingleHTTPChannel = struct {
-    const SingleHTTPCHannel_ = @import("./sync.zig").Channel(HTTPClientResult, .{ .Static = 8 });
-    channel: SingleHTTPCHannel_,
+    const SingleHTTPChannel_ = @import("./sync.zig").Channel(HTTPClientResult, .{ .Static = 8 });
+    channel: SingleHTTPChannel_,
     pub fn reset(_: *@This()) void {}
     pub fn init() SingleHTTPChannel {
-        return SingleHTTPChannel{ .channel = SingleHTTPCHannel_.init() };
+        return SingleHTTPChannel{ .channel = SingleHTTPChannel_.init() };
     }
 };
 
@@ -2299,7 +2299,7 @@ pub fn toResult(this: *HTTPClient, metadata: HTTPResponseMetadata) HTTPClientRes
 
 // preallocate a buffer for the body no more than 256 MB
 // the intent is to avoid an OOM caused by a malicious server
-// reporting gigantic Conten-Length and then
+// reporting gigantic Content-Length and then
 // never finishing sending the body
 const preallocate_max = 1024 * 1024 * 256;
 
@@ -2589,7 +2589,7 @@ pub fn handleResponseMetadata(
             return error.ConnectionRefused;
         }
 
-        //signal to continue the proxing
+        //signal to continue the proxying
         return true;
     }
 

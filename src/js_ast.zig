@@ -390,7 +390,7 @@ pub const Binding = struct {
                 }, loc);
             },
             else => {
-                Global.panic("Interanl error", .{});
+                Global.panic("Internal error", .{});
             },
         }
     }
@@ -758,7 +758,7 @@ pub const Symbol = struct {
 
         // This has special merging behavior. You're allowed to re-declare these
         // symbols more than once in the same scope. These symbols are also hoisted
-        // out of the scope they are declared in to the closest containing function
+        // from the scope where they are declared to the closest containing function
         // or module scope. These are the symbols with this kind:
         //
         // - Function arguments
@@ -1681,7 +1681,7 @@ pub const E = struct {
             return @ptrCast([*]const u16, @alignCast(@alignOf(u16), this.data.ptr))[0..this.data.len];
         }
 
-        pub fn resovleRopeIfNeeded(this: *String, allocator: std.mem.Allocator) void {
+        pub fn resolveRopeIfNeeded(this: *String, allocator: std.mem.Allocator) void {
             if (this.next == null or !this.isUTF8()) return;
             var str = this.next;
             var bytes = std.ArrayList(u8).initCapacity(allocator, this.rope_len) catch unreachable;
@@ -1696,7 +1696,7 @@ pub const E = struct {
         }
 
         pub fn slice(this: *String, allocator: std.mem.Allocator) []const u8 {
-            this.resovleRopeIfNeeded(allocator);
+            this.resolveRopeIfNeeded(allocator);
             return this.string(allocator) catch unreachable;
         }
 
@@ -3923,8 +3923,8 @@ pub const Expr = struct {
                     equality.ok = @as(Expr.Tag, right) == Expr.Tag.e_string;
                     if (equality.ok) {
                         var r = right.e_string;
-                        r.resovleRopeIfNeeded(allocator);
-                        l.resovleRopeIfNeeded(allocator);
+                        r.resolveRopeIfNeeded(allocator);
+                        l.resolveRopeIfNeeded(allocator);
                         equality.equal = r.eql(E.String, l);
                     }
                 },
@@ -6274,7 +6274,7 @@ pub const Macro = struct {
                                     self.args.appendAssumeCapacity(Expr{ .data = .{ .e_boolean = .{ .value = false } }, .loc = value.loc });
                                 },
                                 .e_number => {
-                                    // Numbers are cooerced to booleans
+                                    // Numbers are coerced to booleans
                                     self.args.appendAssumeCapacity(Expr{ .data = .{ .e_boolean = .{ .value = value.data.e_number.value > 0.0 } }, .loc = value.loc });
                                 },
                                 // these ones are not statically analyzable so we just leave them in as-is
@@ -6311,7 +6311,7 @@ pub const Macro = struct {
                                     self.args.appendAssumeCapacity(invalid_value);
                                 },
                                 .e_boolean => {
-                                    // Booleans are cooerced to numbers
+                                    // Booleans are coerced to numbers
                                     self.args.appendAssumeCapacity(
                                         Expr{
                                             .data = .{
@@ -6332,7 +6332,7 @@ pub const Macro = struct {
                                 },
                                 // <number>123</number>
                                 .e_number => {
-                                    // Numbers are cooerced to booleans
+                                    // Numbers are coerced to booleans
                                     self.args.appendAssumeCapacity(value);
                                 },
                                 // these ones are not statically analyzable so we just leave them in as-is
@@ -6557,11 +6557,11 @@ pub const Macro = struct {
                                 .e_missing => {
                                     self.args.appendAssumeCapacity(invalid_value);
                                 },
-                                // null is cooerced to "null"
+                                // null is coerced to "null"
                                 .e_null => {
                                     self.args.appendAssumeCapacity(Expr{ .loc = value.loc, .data = .{ .e_string = &E.String.null } });
                                 },
-                                // undefined is cooerced to "undefined"
+                                // undefined is coerced to "undefined"
                                 .e_undefined => {
                                     self.args.appendAssumeCapacity(Expr{ .loc = value.loc, .data = .{ .e_string = &E.String.undefined } });
                                 },

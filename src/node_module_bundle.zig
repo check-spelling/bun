@@ -227,7 +227,7 @@ pub const NodeModuleBundle = struct {
             }
 
             pub fn cmpAsc(context: Self, lhs: Api.JavascriptBundledModule, rhs: Api.JavascriptBundledModule) std.math.Order {
-                // Comapre the module name
+                // Compare the module name
                 const lhs_name = context.moduleName(&lhs);
                 const rhs_name = context.moduleName(&rhs);
 
@@ -285,7 +285,7 @@ pub const NodeModuleBundle = struct {
             }
 
             pub fn cmpAsc(context: Self, lhs: Api.JavascriptBundledModule, rhs: Api.JavascriptBundledModule) std.math.Order {
-                // Comapre the module name
+                // Compare the module name
                 const lhs_name = context.moduleName(&lhs);
                 const rhs_name = context.moduleName(&rhs);
 

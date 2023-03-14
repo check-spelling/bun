@@ -199,7 +199,7 @@ ExceptionOr<void> FetchHeaders::remove(const String& name)
         return Exception { TypeError, "Headers object's guard is 'immutable'"_s };
     if (m_guard == FetchHeaders::Guard::Request && isForbiddenHeaderName(name))
         return {};
-    if (m_guard == FetchHeaders::Guard::RequestNoCors && !isNoCORSSafelistedRequestHeaderName(name) && !isPriviledgedNoCORSRequestHeaderName(name))
+    if (m_guard == FetchHeaders::Guard::RequestNoCors && !isNoCORSSafelistedRequestHeaderName(name) && !isPrivilegedNoCORSRequestHeaderName(name))
         return {};
     if (m_guard == FetchHeaders::Guard::Response && isForbiddenResponseHeaderName(name))
         return {};

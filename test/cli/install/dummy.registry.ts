@@ -55,7 +55,7 @@ export function setHandler(newHandler) {
   handler = newHandler;
 }
 
-function resetHanlder() {
+function resetHandler() {
   setHandler(() => new Response("Tea Break~", { status: 418 }));
 }
 
@@ -75,7 +75,7 @@ export function dummyAfterAll() {
 }
 
 export async function dummyBeforeEach() {
-  resetHanlder();
+  resetHandler();
   requested = 0;
   package_dir = await mkdtemp(join(await realpath(tmpdir()), "bun-install.test"));
   await writeFile(
@@ -89,6 +89,6 @@ registry = "http://localhost:${server.port}/"
 }
 
 export async function dummyAfterEach() {
-  resetHanlder();
+  resetHandler();
   await rm(package_dir, { force: true, recursive: true });
 }

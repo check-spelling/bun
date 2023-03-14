@@ -229,7 +229,7 @@ pub fn getSelfExeSharedLibPaths(allocator: std.mem.Allocator) error{OutOfMemory}
             }
             return try paths.toOwnedSlice();
         },
-        // revisit if Haiku implements dl_iterat_phdr (https://dev.haiku-os.org/ticket/15743)
+        // revisit if Haiku implements dl_iterate_phdr (https://dev.haiku-os.org/ticket/15743)
         .haiku => {
             var paths = List.init(allocator);
             errdefer {

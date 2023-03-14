@@ -1476,10 +1476,10 @@ test "Pattern Match" {
         },
 
         .@"[teamSlug]/lemon/[...project]" = .{
-            "team/lemon/lemon-bacon-cheese/wow/brocollini",
+            "team/lemon/lemon-bacon-cheese/wow/broccolini",
             &[_]Entry{
                 .{ .name = "teamSlug", .value = "team" },
-                .{ .name = "project", .value = "lemon-bacon-cheese/wow/brocollini" },
+                .{ .name = "project", .value = "lemon-bacon-cheese/wow/broccolini" },
             },
         },
 
@@ -1566,7 +1566,7 @@ test "Pattern Match" {
     if (TestList.run(optional_catch_all) > 0) try expect(false);
 }
 
-test "Github API Route Loader" {
+test "GitHub API Route Loader" {
     var server = MockServer{};
     var ctx = MockRequestContextType{
         .url = try URLPath.parse("/hi"),

@@ -17,7 +17,7 @@
 #include "JavaScriptCore/TypedArrayInlines.h"
 #include "JavaScriptCore/PropertyNameArray.h"
 #include "Buffer.h"
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 #include "Buffer.h"
 
 #include <JavaScriptCore/DOMJITAbstractHeap.h>

@@ -248,7 +248,7 @@ pub const SplitIterator = struct {
 //         const last_end = @min(end + k - 1, buf.len);
 //         const last_start = last_end - n;
 
-//         // Look for the first character in the delimter
+//         // Look for the first character in the delimiter
 //         const first_chunk: V8x32 = buf[start..end][0..n].*;
 //         const last_chunk: V8x32 = buf[last_start..last_end][0..n].*;
 //         const mask = @bitCast(V1x32, first == first_chunk) & @bitCast(V1x32, last == last_chunk);
@@ -427,24 +427,24 @@ test "indexOf" {
             "456",
         },
         .{
-            "/foo/bar/baz/bacon/eggs/lettuce/tomatoe",
+            "/foo/bar/baz/bacon/eggs/lettuce/tomato",
             "bacon",
         },
         .{
-            "/foo/bar/baz/bacon////eggs/lettuce/tomatoe",
+            "/foo/bar/baz/bacon////eggs/lettuce/tomato",
             "eggs",
         },
         .{
-            "////////////////zfoo/bar/baz/bacon/eggs/lettuce/tomatoe",
+            "////////////////zfoo/bar/baz/bacon/eggs/lettuce/tomato",
             "/",
         },
         .{
-            "/okay/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomatoe",
-            "/tomatoe",
+            "/okay/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomato",
+            "/tomato",
         },
         .{
-            "/okay///////////so much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomatoe",
-            "/tomatoe",
+            "/okay///////////so much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomato",
+            "/tomato",
         },
     };
 
@@ -2317,7 +2317,7 @@ pub fn escapeHTMLForUTF16Input(allocator: std.mem.Allocator, utf16: []const u16)
                             }
                         }
 
-                        // edgecase: code point width could exceed asdcii_u16_vector_size
+                        // edgecase: code point width could exceed ascii_u16_vector_size
                         remaining = remaining[i..];
                         break :scan_and_allocate_lazily;
                     }

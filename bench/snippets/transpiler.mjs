@@ -81,7 +81,7 @@ group("transformSync (" + ((code.length / 1024) | 0) + " KB jsx file)", () => {
   }
 });
 
-group("tranform x 5", () => {
+group("transform x 5", () => {
   for (let { name, transform, opts } of transpilers) {
     bench(name, async () => {
       return Promise.all([

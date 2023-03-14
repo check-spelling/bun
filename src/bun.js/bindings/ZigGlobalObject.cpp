@@ -69,7 +69,7 @@
 #include "JavaScriptCore/JSCallbackObject.h"
 #include "JavaScriptCore/JSClassRef.h"
 #include "JavaScriptCore/CallData.h"
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 
 #include "BunClientData.h"
 
@@ -2487,7 +2487,7 @@ JSC_DEFINE_HOST_FUNCTION(errorConstructorFuncCaptureStackTrace, (JSC::JSGlobalOb
     // Create the call sites (one per frame)
     GlobalObject::createCallSitesFromFrames(lexicalGlobalObject, objectScope, stackTrace, callSites);
 
-    /* Foramt the stack trace.
+    /* Format the stack trace.
      * Note that v8 won't actually format the stack trace here, but will create a "stack" accessor
      * on the error object, which will format the stack trace on the first access. For now, since
      * we're not being used internally by JSC, we can assume callers of Error.captureStackTrace in

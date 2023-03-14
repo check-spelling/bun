@@ -187,8 +187,8 @@ function getStdioWriteStream(fd_, rawRequire) {
   function isFastEncoding(encoding) {
     if (!encoding) return true;
 
-    var normalied = encoding.toLowerCase();
-    return normalied === "utf8" || normalied === "utf-8" || normalied === "buffer" || normalied === "binary";
+    var normalized = encoding.toLowerCase();
+    return normalized === "utf8" || normalized === "utf-8" || normalized === "buffer" || normalized === "binary";
   }
 
   var readline;

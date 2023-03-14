@@ -8,7 +8,7 @@ var promisify = {
   [notrace]: fsFunction => {
     // TODO: remove variadic arguments
     // we can use new Function() here instead
-    // based on fsFucntion.length
+    // based on fsFunction.length
     var func = {
       [notrace]: function (resolve, reject, args) {
         var result;

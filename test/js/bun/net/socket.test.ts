@@ -40,7 +40,7 @@ it("listen() should throw connection error for invalid host", () => {
 
     Bun.listen({
       port: 4423,
-      hostname: "whatishtis.com",
+      hostname: "whatisthis.com",
       socket: handlers,
     });
   }).toThrow();

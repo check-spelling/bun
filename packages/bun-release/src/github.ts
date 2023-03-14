@@ -46,7 +46,7 @@ export async function getRelease(tag?: string) {
 export async function uploadAsset(tag: string, name: string, blob: Blob) {
   const release = await getRelease(tag);
   const asset = release.assets.find(asset => asset.name === name);
-  // Github requires that existing assets are deleted before uploading
+  // GitHub requires that existing assets are deleted before uploading
   // a new asset, but does not provide a rename or re-upload API?!?
   if (asset) {
     await github("DELETE /repos/{owner}/{repo}/releases/assets/{asset_id}", {

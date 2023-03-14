@@ -180,7 +180,7 @@ const char* const s_importMetaObjectRequireESMCode =
     "  }\n" \
     "\n" \
     "  if (!entry || !entry.evaluated || !entry.module) {\n" \
-    "    @throwTypeError(`require() failed to evaluate module \\\"${resolved}\\\". This is an internal consistentency error.`);\n" \
+    "    @throwTypeError(`require() failed to evaluate module \\\"${resolved}\\\". This is an internal consistency error.`);\n" \
     "  }\n" \
     "  var exports = @Loader.getModuleNamespaceObject(entry.module);\n" \
     "  var commonJS = exports.default;\n" \

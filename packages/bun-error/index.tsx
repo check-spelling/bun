@@ -1097,7 +1097,7 @@ const Footer = ({ toMarkdown, data }) => (
     <div
       title="Copy error as markdown so it can be pasted into a bug report or slack/discord"
       aria-label="Copy as markdown button"
-      className="BunErrror-footerItem BunError-CopyButton"
+      className="BunError-footerItem BunError-CopyButton"
       onClick={() => copyToClipboard(withBunInfo(String(toMarkdown(data))))}
     >
       <svg width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -1105,7 +1105,7 @@ const Footer = ({ toMarkdown, data }) => (
       </svg>{" "}
       Copy as markdown
     </div>
-    <div className="BunErrror-footerItem" id="BunError-poweredBy"></div>
+    <div className="BunError-footerItem" id="BunError-poweredBy"></div>
   </div>
 );
 

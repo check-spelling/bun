@@ -373,7 +373,7 @@ if (typeof window !== "undefined") {
           if (!update.node || update.node.tagName === "HTML") {
             update.sheet.replaceSync(this.decoder.decode(bytes));
           } else if (update.node.tagName === "LINK" || update.node.tagName === "STYLE") {
-            // This might cause CSS specifity issues....
+            // This might cause CSS specificity issues....
             // I'm not 100% sure this is a safe operation
             const sheet = new CSSStyleSheet();
             const decoded = this.decoder.decode(bytes);
@@ -617,7 +617,7 @@ if (typeof window !== "undefined") {
     }
 
     static activate(verboseOrFastRefresh: boolean = false) {
-      // Support browser-like envirnments where location and WebSocket exist
+      // Support browser-like environments where location and WebSocket exist
       // Maybe it'll work in Deno! Who knows.
       if (this.client || !("location" in globalThis) || !("WebSocket" in globalThis)) {
         return;
@@ -1284,7 +1284,7 @@ if (typeof window !== "undefined") {
             if (oldModule && oldModule._update !== thisMod._update) {
               // ESM-based HMR has a disadvantage against CommonJS HMR
               // ES Namespace objects are not [[Configurable]]
-              // That means we have to loop through all previous versions of updated modules that that have unique export names
+              // That means we have to loop through all previous versions of updated modules that have unique export names
               // and updates those exports specifically
               // Otherwise, changes will not be reflected properly
               // However, we only need to loop through modules that add or remove exports, i.e. those are ones which have "real" exports

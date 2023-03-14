@@ -523,7 +523,7 @@ pub const PrintResult = struct {
 // do not make this a packed struct
 // stage1 compiler bug:
 // > /optional-chain-with-function.js: Evaluation failed: TypeError: (intermediate value) is not a function
-// this test failure was caused by the packed structi mplementation
+// this test failure was caused by the packed struct implementation
 const ExprFlag = enum {
     forbid_call,
     forbid_in,
@@ -2157,7 +2157,7 @@ pub fn NewPrinter(
                     p.print(if (e.value) "true" else "false");
                 },
                 .e_string => |e| {
-                    e.resovleRopeIfNeeded(p.options.allocator);
+                    e.resolveRopeIfNeeded(p.options.allocator);
                     p.addSourceMapping(expr.loc);
 
                     // If this was originally a template literal, print it as one as long as we're not minifying
@@ -2191,7 +2191,7 @@ pub fn NewPrinter(
 
                     p.print("`");
                     if (e.head.isPresent()) {
-                        e.head.resovleRopeIfNeeded(p.options.allocator);
+                        e.head.resolveRopeIfNeeded(p.options.allocator);
 
                         p.printStringContent(&e.head, '`');
                     }
@@ -2201,7 +2201,7 @@ pub fn NewPrinter(
                         p.printExpr(part.value, .lowest, ExprFlag.None());
                         p.print("}");
                         if (part.tail.isPresent()) {
-                            part.tail.resovleRopeIfNeeded(p.options.allocator);
+                            part.tail.resolveRopeIfNeeded(p.options.allocator);
                             p.printStringContent(&part.tail, '`');
                         }
                     }
@@ -2796,7 +2796,7 @@ pub fn NewPrinter(
                 .e_string => |key| {
                     p.addSourceMapping(_key.loc);
                     if (key.isUTF8()) {
-                        key.resovleRopeIfNeeded(p.options.allocator);
+                        key.resolveRopeIfNeeded(p.options.allocator);
                         p.printSpaceBeforeIdentifier();
                         var allow_shorthand: bool = true;
                         // In react/cjs/react.development.js, there's part of a function like this:
@@ -3037,7 +3037,7 @@ pub fn NewPrinter(
 
                                 switch (property.key.data) {
                                     .e_string => |str| {
-                                        str.resovleRopeIfNeeded(p.options.allocator);
+                                        str.resolveRopeIfNeeded(p.options.allocator);
                                         p.addSourceMapping(property.key.loc);
 
                                         if (str.isUTF8()) {
@@ -3175,7 +3175,7 @@ pub fn NewPrinter(
                     }
                 },
                 .s_class => |s| {
-                    // Give an extra newline for readaiblity
+                    // Give an extra newline for readability
                     if (prev_stmt_tag != .s_empty) {
                         p.printNewline();
                     }
@@ -3349,7 +3349,7 @@ pub fn NewPrinter(
                         }
                     }
 
-                    // Give an extra newline for readaiblity
+                    // Give an extra newline for readability
                     if (!prev_stmt_tag.isExportLike()) {
                         p.printNewline();
                     }
@@ -4094,7 +4094,7 @@ pub fn NewPrinter(
 
                                 const last = p.import_records.len - 1;
                                 var needs_comma = false;
-                                // This might be a determinsim issue
+                                // This might be a determinism issue
                                 // But, it's not random
                                 skip: for (p.import_records, 0..) |_record, i| {
                                     if (!_record.is_bundled or _record.module_id == 0) continue;

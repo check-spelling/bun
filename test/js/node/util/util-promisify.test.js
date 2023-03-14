@@ -65,7 +65,7 @@ describe("util.promisify", () => {
         }),
       );
 
-      const promiseFileDontExist = stat("/dontexist");
+      const promiseFileDontExist = stat("/nonexistent");
       promiseFileDontExist.catch(
         common.mustCall(error => {
           assert(error.message.includes("ENOENT: no such file or directory, stat"));
@@ -78,10 +78,10 @@ describe("util.promisify", () => {
     it("double promisify", () => {
       function fn() {}
 
-      function promisifedFn() {}
-      fn[promisify.custom] = promisifedFn;
-      assert.strictEqual(promisify(fn), promisifedFn);
-      assert.strictEqual(promisify(promisify(fn)), promisifedFn);
+      function promisifiedFn() {}
+      fn[promisify.custom] = promisifiedFn;
+      assert.strictEqual(promisify(fn), promisifiedFn);
+      assert.strictEqual(promisify(promisify(fn)), promisifiedFn);
     });
 
     it.skip("should register shared promisify symbol", () => {
@@ -112,7 +112,7 @@ describe("util.promisify", () => {
     );
   });
 
-  it("should call custom promised promised function with proper args", () => {
+  it("should call custom promised function with proper args", () => {
     const firstValue = 5;
     const secondValue = 17;
     var called = false;

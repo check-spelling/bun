@@ -2025,7 +2025,7 @@ JSC_DEFINE_HOST_FUNCTION(constructJSBuffer, (JSC::JSGlobalObject * lexicalGlobal
         case Float64ArrayType:
         case BigInt64ArrayType:
         case BigUint64ArrayType: {
-            // byteOffset and byteLength are ignored in this case, which is consitent with Node.js and new Uint8Array()
+            // byteOffset and byteLength are ignored in this case, which is consistent with Node.js and new Uint8Array()
             JSC::JSArrayBufferView* view = jsCast<JSC::JSArrayBufferView*>(distinguishingArg.asCell());
 
             void* data = view->vector();
@@ -2054,7 +2054,7 @@ JSC_DEFINE_HOST_FUNCTION(constructJSBuffer, (JSC::JSGlobalObject * lexicalGlobal
         case DataViewType:
         case Uint8ArrayType:
         case Uint8ClampedArrayType: {
-            // byteOffset and byteLength are ignored in this case, which is consitent with Node.js and new Uint8Array()
+            // byteOffset and byteLength are ignored in this case, which is consistent with Node.js and new Uint8Array()
             JSC::JSArrayBufferView* view = jsCast<JSC::JSArrayBufferView*>(distinguishingArg.asCell());
 
             void* data = view->vector();

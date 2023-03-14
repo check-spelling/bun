@@ -22,7 +22,7 @@ declare module "fs/promises" {
     CopyOptions,
     EncodingOption,
     WriteFileOptions,
-    SimlinkType,
+    SymlinkType,
     Abortable,
     RmOptions,
     RmDirOptions,
@@ -311,7 +311,7 @@ declare module "fs/promises" {
   function symlink(
     target: PathLike,
     path: PathLike,
-    type?: SimlinkType,
+    type?: SymlinkType,
   ): Promise<void>;
   /**
    * Equivalent to `fsPromises.stat()` unless `path` refers to a symbolic link,

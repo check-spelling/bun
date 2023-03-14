@@ -822,7 +822,7 @@ pub const Code = enum {
     /// Valid TLS protocol versions are 'TLSv1', 'TLSv1.1', or 'TLSv1.2'.
     ERR_TLS_INVALID_PROTOCOL_VERSION,
 
-    /// The TLS socket must be connected and securily established. Ensure the 'secure' event is emitted before continuing.
+    /// The TLS socket must be connected and securely established. Ensure the 'secure' event is emitted before continuing.
     /// Added in: v13.10.0, v12.17.0
     ERR_TLS_INVALID_STATE,
 

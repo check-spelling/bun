@@ -878,7 +878,7 @@ pub const ModuleLoader = struct {
         globalObject: ?*JSC.JSGlobalObject,
         comptime flags: FetchFlags,
     ) !ResolvedSource {
-        const disable_transpilying = comptime flags.disableTranspiling();
+        const disable_transpiling = comptime flags.disableTranspiling();
 
         switch (loader) {
             .js, .jsx, .ts, .tsx, .json, .toml => {
@@ -960,7 +960,7 @@ pub const ModuleLoader = struct {
                 var parse_result = jsc_vm.bundler.parseMaybeReturnFileOnly(
                     parse_options,
                     null,
-                    disable_transpilying,
+                    disable_transpiling,
                 ) orelse {
                     return error.ParseError;
                 };
@@ -988,7 +988,7 @@ pub const ModuleLoader = struct {
                     return error.ParseError;
                 }
 
-                if (comptime disable_transpilying) {
+                if (comptime disable_transpiling) {
                     return ResolvedSource{
                         .allocator = null,
                         .source_code = switch (comptime flags) {
@@ -1524,7 +1524,7 @@ pub const ModuleLoader = struct {
 
     const shared_library_suffix = if (Environment.isMac) "dylib" else if (Environment.isLinux) "so" else "";
 
-    pub fn fetchBuiltinModule(jsc_vm: *VirtualMachine, specifier: string, log: *logger.Log, comptime disable_transpilying: bool) !?ResolvedSource {
+    pub fn fetchBuiltinModule(jsc_vm: *VirtualMachine, specifier: string, log: *logger.Log, comptime disable_transpiling: bool) !?ResolvedSource {
         if (jsc_vm.node_modules != null and strings.eqlComptime(specifier, JSC.bun_file_import_path)) {
             // We kind of need an abstraction around this.
             // Basically we should subclass JSC::SourceCode with:
@@ -1555,7 +1555,7 @@ pub const ModuleLoader = struct {
                 // so it consistently handles bundled imports
                 // we can't take the shortcut of just directly importing the file, sadly.
                 .@"bun:main" => {
-                    if (comptime disable_transpilying) {
+                    if (comptime disable_transpiling) {
                         return ResolvedSource{
                             .allocator = null,
                             .source_code = ZigString.init(jsc_vm.entry_point.source.contents),

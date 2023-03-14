@@ -504,7 +504,7 @@ pub const Tree = struct {
     }
 };
 
-/// This conditonally clones the lockfile with root packages marked as non-resolved
+/// This conditionally clones the lockfile with root packages marked as non-resolved
 /// that do not satisfy `Features`. The package may still end up installed even
 /// if it was e.g. in "devDependencies" and its a production install. In that case,
 /// it would be installed because another dependency or transient dependency needed it.
@@ -516,9 +516,9 @@ pub fn maybeCloneFilteringRootPackages(
     old: *Lockfile,
     features: Features,
 ) !*Lockfile {
-    const old_root_dependenices_list = old.packages.items(.dependencies)[0];
+    const old_root_dependencies_list = old.packages.items(.dependencies)[0];
     var old_root_resolutions = old.packages.items(.resolutions)[0];
-    const root_dependencies = old_root_dependenices_list.get(old.buffers.dependencies.items);
+    const root_dependencies = old_root_dependencies_list.get(old.buffers.dependencies.items);
     var resolutions = old_root_resolutions.mut(old.buffers.resolutions.items);
     var any_changes = false;
     const end = @truncate(PackageID, old.packages.len);
@@ -1957,7 +1957,7 @@ pub const Package = extern struct {
 
             // We lose the bin info here
             // package.bin = package_version.bin.clone(string_buf, manifest.extern_strings_bin_entries, extern_strings_list.items, extern_strings_slice, @TypeOf(&string_builder), &string_builder);
-            // and the integriy hash
+            // and the integrity hash
             // package.meta.integrity = package_version.integrity;
 
             package.meta.arch = package_json.arch;

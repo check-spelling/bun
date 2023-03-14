@@ -168,7 +168,7 @@ pub const INotify = struct {
                         }
                     }
 
-                    // This is what replit does as of Jaunary 2023.
+                    // This is what replit does as of January 2023.
                     // 1) CREATE .http.ts.3491171321~
                     // 2) OPEN .http.ts.3491171321~
                     // 3) ATTRIB .http.ts.3491171321~
@@ -488,7 +488,7 @@ pub fn NewWatcher(comptime ContextType: type) type {
                         null,
                     );
 
-                    // Give the events more time to coallesce
+                    // Give the events more time to coalesce
                     if (count_ < 128 / 2) {
                         const remain = 128 - count_;
                         var timespec = std.os.timespec{ .tv_sec = 0, .tv_nsec = 100_000 };

@@ -501,7 +501,7 @@ pub const StreamStart = union(Tag) {
                     };
                 }
             },
-            else => @compileError("Unuspported tag"),
+            else => @compileError("Unsupported tag"),
         }
 
         return .{ .empty = {} };

@@ -92,6 +92,6 @@ function from(items) {
 
   // Don't pass the second argument because Node's Buffer.from doesn't accept
   // a function and Uint8Array.from requires it if it exists
-  // That means we cannot use @tailCallFowrardArguments here, sadly
+  // That means we cannot use @tailCallForwardArguments here, sadly
   return new @Buffer(@Uint8Array.from(arrayLike).buffer);
 }

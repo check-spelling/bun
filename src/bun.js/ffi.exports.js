@@ -335,11 +335,11 @@ export function dlopen(path, options) {
         // instead of
         //    "/usr/lib/sqlite3.so"
         // we want
-        //    "sqlite3_get_version() - sqlit3.so"
+        //    "sqlite3_get_version() - sqlite3.so"
         path.includes("/") ? `${key} (${path.split("/").pop()})` : `${key} (${path})`,
       );
     } else {
-      // consistentcy
+      // consistency
       result.symbols[key].native = result.symbols[key];
     }
   }
@@ -355,7 +355,7 @@ export function linkSymbols(options) {
     if (options[key]?.args?.length || FFIType[options[key]?.returns] === FFIType.cstring) {
       result.symbols[key] = FFIBuilder(options[key].args ?? [], options[key].returns ?? FFIType.void, symbol, key);
     } else {
-      // consistentcy
+      // consistency
       result.symbols[key].native = result.symbols[key];
     }
   }

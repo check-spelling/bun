@@ -377,7 +377,7 @@ pub const FFI = struct {
                     }
                     symbols.clearAndFree(allocator);
                     dylib.close();
-                    return ZigString.init("Failed to compile (nothing happend!)").toErrorInstance(global);
+                    return ZigString.init("Failed to compile (nothing happened!)").toErrorInstance(global);
                 },
                 .compiled => |*compiled| {
                     const str = ZigString.init(bun.asByteSlice(function_name));
@@ -472,7 +472,7 @@ pub const FFI = struct {
                         value.arg_types.clearAndFree(allocator);
                     }
                     symbols.clearAndFree(allocator);
-                    return ZigString.static("Failed to compile (nothing happend!)").toErrorInstance(global);
+                    return ZigString.static("Failed to compile (nothing happened!)").toErrorInstance(global);
                 },
                 .compiled => |*compiled| {
                     const name = &ZigString.init(bun.asByteSlice(function_name));

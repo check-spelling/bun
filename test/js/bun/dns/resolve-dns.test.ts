@@ -5,7 +5,7 @@ import { withoutAggressiveGC } from "harness";
 describe("dns.lookup", () => {
   const backends = [process.platform === "darwin" ? "system" : undefined, "libc", "c-ares"].filter(Boolean);
   for (let backend of backends) {
-    it(backend + " parallell x 10", async () => {
+    it(backend + " parallel x 10", async () => {
       const promises = [];
       for (let i = 0; i < 10; i++) {
         promises.push(dns.lookup("localhost", { backend }));

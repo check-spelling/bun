@@ -724,7 +724,7 @@ fn diffLinesToCharsMunge(
     var line: []const u8 = "";
     var chars = ArrayListUnmanaged(u8){};
     // Walk the text, pulling out a Substring for each line.
-    // text.split('\n') would would temporarily double our memory footprint.
+    // text.split('\n') would temporarily double our memory footprint.
     // Modifying text would create many large strings to garbage collect.
     while (line_end < @intCast(isize, text.len) - 1) {
         line_end = b: {
@@ -805,7 +805,7 @@ fn diffCleanupMerge(allocator: std.mem.Allocator, diffs: *DiffList) DiffError!vo
                 // Upon reaching an equality, check for prior redundancies.
                 if (count_delete + count_insert > 1) {
                     if (count_delete != 0 and count_insert != 0) {
-                        // Factor out any common prefixies.
+                        // Factor out any common prefixes.
                         common_length = diffCommonPrefix(text_insert.items, text_delete.items);
                         if (common_length != 0) {
                             if ((pointer - count_delete - count_insert) > 0 and
@@ -835,7 +835,7 @@ fn diffCleanupMerge(allocator: std.mem.Allocator, diffs: *DiffList) DiffError!vo
                             try text_insert.replaceRange(allocator, 0, common_length, &.{});
                             try text_delete.replaceRange(allocator, 0, common_length, &.{});
                         }
-                        // Factor out any common suffixies.
+                        // Factor out any common suffixes.
                         // @ZigPort this seems very wrong
                         common_length = diffCommonSuffix(text_insert.items, text_delete.items);
                         if (common_length != 0) {

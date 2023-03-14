@@ -1493,7 +1493,7 @@ pub extern fn PKCS5_PBKDF2_HMAC_SHA1(password: [*c]const u8, password_len: usize
 /// as described below.
 ///
 /// |N|, |r|, and |p| are as described in RFC 7914 section 6. They determine the
-/// cost of the operation. If |max_mem| is zero, a defult limit of 32MiB will be
+/// cost of the operation. If |max_mem| is zero, a default limit of 32MiB will be
 /// used.
 ///
 /// The parameters are considered invalid under any of the following conditions:
@@ -6007,7 +6007,7 @@ pub extern fn SSL_add_dir_cert_subjects_to_stack(out: ?*struct_stack_st_X509_NAM
 pub extern fn SSL_CTX_enable_tls_channel_id(ctx: ?*SSL_CTX) c_int;
 pub extern fn SSL_enable_tls_channel_id(ssl: ?*SSL) c_int;
 pub extern fn BIO_f_ssl() [*c]const BIO_METHOD;
-pub extern fn BIO_set_ssl(bio: [*c]BIO, ssl: ?*SSL, take_owership: c_int) c_long;
+pub extern fn BIO_set_ssl(bio: [*c]BIO, ssl: ?*SSL, take_ownership: c_int) c_long;
 pub extern fn SSL_get_session(ssl: ?*const SSL) ?*SSL_SESSION;
 pub extern fn SSL_get1_session(ssl: ?*SSL) ?*SSL_SESSION;
 pub extern fn OPENSSL_init_ssl(opts: u64, settings: ?*const OPENSSL_INIT_SETTINGS) c_int;
@@ -6332,7 +6332,7 @@ pub const EVP_R_NO_NID_FOR_CURVE = @as(c_int, 122);
 pub const EVP_R_NO_OPERATION_SET = @as(c_int, 123);
 pub const EVP_R_NO_PARAMETERS_SET = @as(c_int, 124);
 pub const EVP_R_OPERATION_NOT_SUPPORTED_FOR_THIS_KEYTYPE = @as(c_int, 125);
-pub const EVP_R_OPERATON_NOT_INITIALIZED = @as(c_int, 126);
+pub const EVP_R_OPERATION_NOT_INITIALIZED = @as(c_int, 126);
 pub const EVP_R_UNKNOWN_PUBLIC_KEY_TYPE = @as(c_int, 127);
 pub const EVP_R_UNSUPPORTED_ALGORITHM = @as(c_int, 128);
 pub const EVP_R_UNSUPPORTED_PUBLIC_KEY_TYPE = @as(c_int, 129);
@@ -8623,9 +8623,9 @@ pub const OBJ_id_smime_aa_contentReference = blk: {
     _ = @as(c_long, 2);
     break :blk @as(c_long, 10);
 };
-pub const SN_id_smime_aa_encrypKeyPref = "id-smime-aa-encrypKeyPref";
-pub const NID_id_smime_aa_encrypKeyPref = @as(c_int, 222);
-pub const OBJ_id_smime_aa_encrypKeyPref = blk: {
+pub const SN_id_smime_aa_encryptKeyPref = "id-smime-aa-encryptKeyPref";
+pub const NID_id_smime_aa_encryptKeyPref = @as(c_int, 222);
+pub const OBJ_id_smime_aa_encryptKeyPref = blk: {
     _ = @as(c_long, 1);
     _ = @as(c_long, 2);
     _ = @as(c_long, 840);

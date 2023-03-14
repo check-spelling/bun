@@ -119,7 +119,7 @@ function createFIFO() {
     "use strict";
     var slice = @Array.prototype.slice;
 
-    class Denqueue {
+    class Dequeue {
         constructor() {
           this._head = 0;
           this._tail = 0;
@@ -219,7 +219,7 @@ function createFIFO() {
       }
 
   
-    return new Denqueue();
+    return new Dequeue();
 }
 
 function newQueue()

@@ -62,7 +62,7 @@ const DeprecatedGlobalRouter = struct {
                         return deprecatedMatchFetchEvent(ctx, fetch_event, exception);
                     }
 
-                    // When disconencted, we still have a copy of the request data in here
+                    // When disconnected, we still have a copy of the request data in here
                     break :brk JSC.JSValue.fromRef(fetch_event.getRequest(ctx, null, undefined, null));
                 }
             }

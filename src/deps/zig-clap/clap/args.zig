@@ -203,7 +203,7 @@ pub const ShellIterator = struct {
                     },
                 },
 
-                // The states that parse the quoted part of arguments. The only differnece
+                // The states that parse the quoted part of arguments. The only difference
                 // between single and double quoted arguments is that single quoted
                 // arguments ignore escape sequences, while double quoted arguments
                 // does escaping.

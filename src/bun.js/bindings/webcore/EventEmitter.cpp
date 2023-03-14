@@ -238,13 +238,13 @@ void EventEmitter::innerInvokeEventListeners(const Identifier& eventType, Simple
                 // If the event type is error, report the exception to the console.
                 Bun__reportUnhandledError(lexicalGlobalObject, JSValue::encode(JSValue(exception)));
             } else if (hasErrorListener) {
-                MarkedArgumentBuffer expcep;
+                MarkedArgumentBuffer except;
                 JSValue errorValue = exception->value();
                 if (!errorValue) {
                     errorValue = JSC::jsUndefined();
                 }
-                expcep.append(errorValue);
-                fireEventListeners(errorIdentifier, WTFMove(expcep));
+                except.append(errorValue);
+                fireEventListeners(errorIdentifier, WTFMove(except));
             }
         }
     }

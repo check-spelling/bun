@@ -1557,7 +1557,7 @@ interface EventTarget {
     callback: EventListenerOrEventListenerObject | null,
     options?: AddEventListenerOptions | boolean,
   ): void;
-  /** Dispatches a synthetic event event to target and returns true if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise. */
+  /** Dispatches a synthetic event to target and returns true if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise. */
   dispatchEvent(event: Event): boolean;
   /** Removes the event listener in target's event listener list with the same type, callback, and options. */
   removeEventListener(
@@ -1794,7 +1794,7 @@ interface WebSocket extends EventTarget {
   readonly readyState: number;
   /** Returns the URL that was used to establish the WebSocket connection. */
   readonly url: string;
-  /** Closes the WebSocket connection, optionally using code as the the WebSocket connection close code and reason as the the WebSocket connection close reason. */
+  /** Closes the WebSocket connection, optionally using code as the WebSocket connection close code and reason as the WebSocket connection close reason. */
   close(code?: number, reason?: string): void;
   /** Transmits data using the WebSocket connection. data can be a string, an ArrayBuffer, or an BufferSource. */
   send(data: string | ArrayBufferLike | BufferSource): void;
@@ -2839,7 +2839,7 @@ interface ResolveError {
 }
 
 declare var ResolveError: {
-  readonly protoype: ResolveError;
+  readonly prototype: ResolveError;
 };
 
 interface BuildError {
@@ -2849,7 +2849,7 @@ interface BuildError {
 }
 
 declare var BuildError: {
-  readonly protoype: BuildError;
+  readonly prototype: BuildError;
 };
 
 // Declare "static" methods in Error

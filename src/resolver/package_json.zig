@@ -1624,7 +1624,7 @@ pub const ESModule = struct {
                             _ = std.mem.replace(u8, str, "*", subpath, &resolve_target_buf2);
                             const result = resolve_target_buf2[0..len];
                             if (r.debug_logs) |log| {
-                                log.addNoteFmt("Subsituted \"{s}\" for \"*\" in \".{s}\" to get \".{s}\" ", .{ subpath, str, result });
+                                log.addNoteFmt("Substituted \"{s}\" for \"*\" in \".{s}\" to get \".{s}\" ", .{ subpath, str, result });
                             }
 
                             return Resolution{ .path = result, .status = .PackageResolve, .debug = .{ .token = target.first_token } };

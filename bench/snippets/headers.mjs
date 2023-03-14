@@ -1,6 +1,6 @@
 import { bench, run } from "../node_modules/mitata/src/cli.mjs";
 
-// pure JS implementation will optimze this out
+// pure JS implementation will optimize this out
 // bench("new Headers", function () {
 //   return new Headers();
 // });

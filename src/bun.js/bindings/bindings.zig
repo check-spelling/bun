@@ -3895,7 +3895,7 @@ pub const JSValue = enum(JSValueReprInt) {
 
     /// When the GC sees a JSValue referenced in the stack
     /// It knows not to free it
-    /// This mimicks the implementation in JavaScriptCore's C++
+    /// This mimics the implementation in JavaScriptCore's C++
     pub inline fn ensureStillAlive(this: JSValue) void {
         if (this.isEmpty() or this.isNumber() or this.isBoolean() or this.isUndefinedOrNull()) return;
         std.mem.doNotOptimizeAway(@ptrCast(C_API.JSObjectRef, this.asVoid()));

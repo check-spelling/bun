@@ -203,7 +203,7 @@ bool isValidHTTPToken(const String& value)
 }
 
 #if USE(GLIB)
-// True if the character at the given position satisifies a predicate, incrementing "pos" by one.
+// True if the character at the given position satisfies a predicate, incrementing "pos" by one.
 // Note: Might return pos == str.length()
 static inline bool skipCharacter(const String& value, unsigned& pos, Function<bool(const UChar)>&& predicate)
 {
@@ -699,7 +699,7 @@ bool parseRange(StringView range, long long& rangeOffset, long long& rangeEnd, l
         return true;
     }
 
-    // Otherwise, the first-byte-position and the last-byte-position are provied.
+    // Otherwise, the first-byte-position and the last-byte-position are provided.
     // Examples:
     //     0-499
     //     500-
@@ -904,7 +904,7 @@ bool isNoCORSSafelistedRequestHeaderName(const String& name)
 }
 
 // Implements <https://fetch.spec.whatwg.org/#privileged-no-cors-request-header-name>.
-bool isPriviledgedNoCORSRequestHeaderName(const String& name)
+bool isPrivilegedNoCORSRequestHeaderName(const String& name)
 {
     return equalLettersIgnoringASCIICase(name, "range"_s);
 }

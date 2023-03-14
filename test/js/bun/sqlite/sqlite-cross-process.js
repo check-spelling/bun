@@ -12,7 +12,7 @@ var db = Database.open(dir + "get-persist.sqlite", { create: true });
 // the behavior. The "beter-sqlite3" npm package does not exhibit this
 // bug, so it doesn't seem to be a general SQLite thing.
 db.run(`PRAGMA journal_mode = WAL`);
-db.run(`PRAGMA synchrounous = NORMAL`);
+db.run(`PRAGMA synchronous = NORMAL`);
 
 db.run(
   `CREATE TABLE IF NOT EXISTS examples (

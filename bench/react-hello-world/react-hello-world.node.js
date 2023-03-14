@@ -557,7 +557,7 @@ var Vc = an((N, Bl) => {
         if (co(h))
           return (
             B(
-              "The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.",
+              "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
               ve(h),
             ),
             or(h)
@@ -5581,7 +5581,7 @@ var Hd = an(pa => {
         if (ue(t))
           return (
             c(
-              "The provided `%s` attribute is an unsupported type %s. This value must be coerced to a string before before using it here.",
+              "The provided `%s` attribute is an unsupported type %s. This value must be coerced to a string before using it here.",
               r,
               P(t),
             ),
@@ -5592,7 +5592,7 @@ var Hd = an(pa => {
         if (ue(t))
           return (
             c(
-              "The provided `%s` CSS property is an unsupported type %s. This value must be coerced to a string before before using it here.",
+              "The provided `%s` CSS property is an unsupported type %s. This value must be coerced to a string before using it here.",
               r,
               P(t),
             ),
@@ -5603,7 +5603,7 @@ var Hd = an(pa => {
         if (ue(t))
           return (
             c(
-              "The provided HTML markup uses a value of unsupported type %s. This value must be coerced to a string before before using it here.",
+              "The provided HTML markup uses a value of unsupported type %s. This value must be coerced to a string before using it here.",
               P(t),
             ),
             W(t)
@@ -8465,11 +8465,11 @@ https://reactjs.org/link/unsafe-component-lifecycles`,
                 "%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().",
                 u,
               ),
-            typeof t.componentWillRecieveProps == "function" &&
-              c("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", u),
-            typeof t.UNSAFE_componentWillRecieveProps == "function" &&
+            typeof t.componentWillReceiveProps == "function" &&
+              c("%s has a method called componentWillReceiveProps(). Did you mean componentWillReceiveProps()?", u),
+            typeof t.UNSAFE_componentWillReceiveProps == "function" &&
               c(
-                "%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
+                "%s has a method called UNSAFE_componentWillReceiveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
                 u,
               );
           var g = t.props !== l;
@@ -9977,7 +9977,7 @@ var Wd = an(Pc => {
         if (yt(o))
           return (
             c(
-              "The provided `%s` attribute is an unsupported type %s. This value must be coerced to a string before before using it here.",
+              "The provided `%s` attribute is an unsupported type %s. This value must be coerced to a string before using it here.",
               a,
               qt(o),
             ),
@@ -9988,7 +9988,7 @@ var Wd = an(Pc => {
         if (yt(o))
           return (
             c(
-              "The provided `%s` CSS property is an unsupported type %s. This value must be coerced to a string before before using it here.",
+              "The provided `%s` CSS property is an unsupported type %s. This value must be coerced to a string before using it here.",
               a,
               qt(o),
             ),
@@ -9999,7 +9999,7 @@ var Wd = an(Pc => {
         if (yt(o))
           return (
             c(
-              "The provided HTML markup uses a value of unsupported type %s. This value must be coerced to a string before before using it here.",
+              "The provided HTML markup uses a value of unsupported type %s. This value must be coerced to a string before using it here.",
               qt(o),
             ),
             Mt(o)
@@ -12828,11 +12828,11 @@ https://reactjs.org/link/unsafe-component-lifecycles`,
                 "%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().",
                 d,
               ),
-            typeof o.componentWillRecieveProps == "function" &&
-              c("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", d),
-            typeof o.UNSAFE_componentWillRecieveProps == "function" &&
+            typeof o.componentWillReceiveProps == "function" &&
+              c("%s has a method called componentWillReceiveProps(). Did you mean componentWillReceiveProps()?", d),
+            typeof o.UNSAFE_componentWillReceiveProps == "function" &&
               c(
-                "%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
+                "%s has a method called UNSAFE_componentWillReceiveProps(). Did you mean UNSAFE_componentWillReceiveProps()?",
                 d,
               );
           var r = o.props !== f;

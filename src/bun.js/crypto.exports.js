@@ -15150,7 +15150,7 @@ var require_ec = __commonJS({
         isYOdd = j & 1,
         isSecondKey = j >> 1;
       if (r.cmp(this.curve.p.umod(this.curve.n)) >= 0 && isSecondKey)
-        throw new Error("Unable to find sencond key candinate");
+        throw new Error("Unable to find second key candidate");
       isSecondKey ? (r = this.curve.pointFromX(r.add(this.curve.n), isYOdd)) : (r = this.curve.pointFromX(r, isYOdd));
       var rInv = signature.r.invm(n),
         s1 = n.sub(e).mul(rInv).umod(n),
@@ -18184,7 +18184,7 @@ var require_der2 = __commonJS({
           ? this._isPrintstr(str)
             ? this._createEncoderBuffer(str)
             : this.reporter.error(
-                "Encoding of string type: printstr supports only latin upper and lower case letters, digits, space, apostrophe, left and rigth parenthesis, plus sign, comma, hyphen, dot, slash, colon, equal sign, question mark",
+                "Encoding of string type: printstr supports only latin upper and lower case letters, digits, space, apostrophe, left and right parenthesis, plus sign, comma, hyphen, dot, slash, colon, equal sign, question mark",
               )
           : /str$/.test(tag)
           ? this._createEncoderBuffer(str)

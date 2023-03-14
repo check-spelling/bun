@@ -1001,7 +1001,7 @@ const PackageInstall = struct {
                                 else => |errno| switch (std.os.errno(errno)) {
                                     .OPNOTSUPP => return error.NotSupported,
                                     .NOENT => return error.FileNotFound,
-                                    // sometimes the downlowded npm package has already node_modules with it, so just ignore exist error here
+                                    // sometimes the downloaded npm package has already node_modules with it, so just ignore exist error here
                                     .EXIST => {},
                                     else => return error.Unexpected,
                                 },
@@ -3717,7 +3717,7 @@ pub const PackageManager = struct {
 
                     // GitHub (and eventually tarball URL) dependencies are not fully resolved until after the tarball is downloaded & extracted.
                     if (manager.processExtractedTarballPackage(&package_id, resolution, task.data.extract, comptime log_level)) |pkg| brk: {
-                        // In the middle of an install, you could end up needing to downlaod the github tarball for a dependency
+                        // In the middle of an install, you could end up needing to download the github tarball for a dependency
                         // We need to make sure we resolve the dependencies first before calling the onExtract callback
                         // TODO: move this into a separate function
                         var any_root = false;

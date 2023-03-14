@@ -255,7 +255,7 @@ void uws_res_end(int ssl, uws_res_t *res, const char *data, size_t length,
                  bool close_connection);
 void uws_res_pause(int ssl, uws_res_t *res);
 void uws_res_resume(int ssl, uws_res_t *res);
-void uws_res_write_continwue(int ssl, uws_res_t *res);
+void uws_res_write_continue(int ssl, uws_res_t *res);
 void uws_res_write_status(int ssl, uws_res_t *res, const char *status,
                           size_t length);
 void uws_res_write_header(int ssl, uws_res_t *res, const char *key,
@@ -271,16 +271,16 @@ uintmax_t uws_res_get_write_offset(int ssl, uws_res_t *res);
 bool uws_res_has_responded(int ssl, uws_res_t *res);
 void uws_res_on_writable(int ssl, uws_res_t *res,
                          bool (*handler)(uws_res_t *res, uintmax_t,
-                                         void *opcional_data),
+                                         void *optional_data),
                          void *user_data);
 void uws_res_on_aborted(int ssl, uws_res_t *res,
-                        void (*handler)(uws_res_t *res, void *opcional_data),
-                        void *opcional_data);
+                        void (*handler)(uws_res_t *res, void *optional_data),
+                        void *optional_data);
 void uws_res_on_data(int ssl, uws_res_t *res,
                      void (*handler)(uws_res_t *res, const char *chunk,
                                      size_t chunk_length, bool is_end,
-                                     void *opcional_data),
-                     void *opcional_data);
+                                     void *optional_data),
+                     void *optional_data);
 void uws_res_upgrade(int ssl, uws_res_t *res, void *data,
                      const char *sec_web_socket_key,
                      size_t sec_web_socket_key_length,

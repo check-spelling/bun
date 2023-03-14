@@ -644,7 +644,7 @@ pub fn joinAbs(_cwd: []const u8, comptime _platform: Platform, part: anytype) []
     return slice;
 }
 
-// Convert parts of potentially invalid file paths into a single valid filpeath
+// Convert parts of potentially invalid file paths into a single valid filepath
 // without querying the filesystem
 // This is the equivalent of
 pub fn joinAbsString(_cwd: []const u8, parts: anytype, comptime _platform: Platform) []const u8 {

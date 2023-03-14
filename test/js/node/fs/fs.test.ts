@@ -907,7 +907,7 @@ describe("fs/promises", () => {
     ];
     for (const args of fizz) {
       try {
-        // check it doens't segfault when called with invalid arguments
+        // check it doesn't segfault when called with invalid arguments
         await promises.readdir(...(args as [any, ...any[]]));
       } catch (e) {
         // check that producing the error doesn't cause any crashes

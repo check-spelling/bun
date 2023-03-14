@@ -1,4 +1,4 @@
-// This file benchmarks different approaches for determinig whether or not a unicode codepoint is possibly a JS identifier
+// This file benchmarks different approaches for determining whether or not a unicode codepoint is possibly a JS identifier
 // these values are copy-pasted from "typescript/lib/typescriptServices.js"
 const std = @import("std");
 pub const SerializedBitset = extern struct {};
@@ -539,7 +539,7 @@ pub const JumpTableInline = struct {
 //     \\    }, factory 🐱‍👤 🐱‍🚀 🐱‍🐉 🐱‍💻 🐱‍🏍Deprecation);
 //     \\    /** @deprecated Use `factory.createJSDocParameterTag` or the factory supplied by your transformation context instead. */
 //     \\    ts.createJSDocPar 🐱‍👤 🐱‍🚀 🐱‍🐉 🐱‍💻 🐱‍🏍amTag = ts.Debug 🐱‍👤 🐱‍🚀 🐱‍🐉 🐱‍💻 🐱‍🏍.deprecate(function createJSDocParamTag(name, isBracketed, typeExpression, comment) {
-//     \\        return ts.factory.createJSDocParameterTag(/*tagName*/ undefined, name, isBracketed, typeExpression, /*isNameFirst*/ false, comment ? ts.factory.createNodeArray([ts.factory.createJSDocText(comment)]) : undefivned);
+//     \\        return ts.factory.createJSDocParameterTag(/*tagName*/ undefined, name, isBracketed, typeExpression, /*isNameFirst*/ false, comment ? ts.factory.createNodeArray([ts.factory.createJSDocText(comment)]) : undefined);
 //     \\    }, factoryDeprecation);
 //     \\    /** @deprecated Use `factory.createComma` or the factory supplied by your transformation context instead. */
 //     \\    ts.createComma = ts.Debug.deprecate(function createComma(left, right) {

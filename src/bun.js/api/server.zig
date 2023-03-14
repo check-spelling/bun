@@ -1386,7 +1386,7 @@ fn NewRequestContext(comptime ssl_enabled: bool, comptime debug_mode: bool, comp
                         .syscall = .sendfile,
                     };
                     var sys = err.withPathLike(file.pathlike).toSystemError();
-                    sys.message = ZigString.init("MacOS does not support sending non-regular files");
+                    sys.message = ZigString.init("macOS does not support sending non-regular files");
                     this.runErrorHandler(sys.toErrorInstance(
                         this.server.globalThis,
                     ));

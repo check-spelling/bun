@@ -113,7 +113,7 @@ pub const NSType = enum(c_int) {
     ns_t_a6 = 38,
     /// Non-terminal DNAME (for IPv6)
     ns_t_dname = 39,
-    /// Kitchen sink (experimentatl)
+    /// Kitchen sink (experimental)
     ns_t_sink = 40,
     /// EDNS0 option (meta-RR)
     ns_t_opt = 41,
@@ -460,7 +460,7 @@ pub const Channel = opaque {
     ///
     ///ARES_ECANCELLED The query was cancelled.
     ///
-    ///ARES_EDESTRUCTION The name service channel channel is being destroyed; the query will not be completed.
+    ///ARES_EDESTRUCTION The name service channel is being destroyed; the query will not be completed.
     ///
     ///On successful completion of the query, the callback argument result points to a struct ares_addrinfo which contains two linked lists, one with resolved addresses and another with canonical names. Also included is the official name of the host (analogous to gethostbyname() h_name).
     ///

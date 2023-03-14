@@ -529,7 +529,7 @@ JSC::EncodedJSValue JSStringDecoderConstructor::construct(JSC::JSGlobalObject* l
     JSStringDecoder* jsObject = JSStringDecoder::create(
         vm, lexicalGlobalObject, structure, encoding);
 
-    // StringDecodeer is a Weird one
+    // StringDecoder is a Weird one
     // This is a hack to make express' body-parser work
     // It does something weird with the prototype
     // Not exactly a subclass

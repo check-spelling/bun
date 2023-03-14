@@ -3,7 +3,7 @@
 #include "headers.h"
 
 #include "BunClientData.h"
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 
 #include "JavaScriptCore/AggregateError.h"
 #include "JavaScriptCore/BytecodeIndex.h"
@@ -2111,11 +2111,11 @@ void JSC__JSPromise__resolve(JSC__JSPromise* arg0, JSC__JSGlobalObject* arg1,
     arg0->resolve(arg1, JSC::JSValue::decode(JSValue2));
 }
 
-// This implementation closely mimicks the one in JSC::JSPromise::resolve
+// This implementation closely mimics the one in JSC::JSPromise::resolve
 void JSC__JSPromise__resolveOnNextTick(JSC__JSPromise* promise, JSC__JSGlobalObject* lexicalGlobalObject,
-    JSC__JSValue encoedValue)
+    JSC__JSValue encodedValue)
 {
-    return JSC__JSPromise__resolve(promise, lexicalGlobalObject, encoedValue);
+    return JSC__JSPromise__resolve(promise, lexicalGlobalObject, encodedValue);
 }
 
 bool JSC__JSValue__isAnyError(JSC__JSValue JSValue0)
@@ -2132,11 +2132,11 @@ bool JSC__JSValue__isAnyError(JSC__JSValue JSValue0)
     return type == JSC::ErrorInstanceType;
 }
 
-// This implementation closely mimicks the one in JSC::JSPromise::reject
+// This implementation closely mimics the one in JSC::JSPromise::reject
 void JSC__JSPromise__rejectOnNextTickWithHandled(JSC__JSPromise* promise, JSC__JSGlobalObject* lexicalGlobalObject,
-    JSC__JSValue encoedValue, bool handled)
+    JSC__JSValue encodedValue, bool handled)
 {
-    JSC::JSValue value = JSC::JSValue::decode(encoedValue);
+    JSC::JSValue value = JSC::JSValue::decode(encodedValue);
     VM& vm = lexicalGlobalObject->vm();
     auto scope = DECLARE_THROW_SCOPE(vm);
     uint32_t flags = promise->internalField(JSC::JSPromise::Field::Flags).get().asUInt32();

@@ -32,7 +32,7 @@ declare module "fs" {
     | null;
   type OpenMode = number | string;
   type Mode = number | string;
-  type SimlinkType = "symlink" | "junction" | undefined | null;
+  type SymlinkType = "symlink" | "junction" | undefined | null;
   interface StatsBase<T> {
     isFile(): boolean;
     isDirectory(): boolean;
@@ -921,7 +921,7 @@ declare module "fs" {
   function symlink(
     target: PathLike,
     path: PathLike,
-    type: SimlinkType,
+    type: SymlinkType,
     callback: NoParamCallback,
   ): void;
   /**
@@ -959,7 +959,7 @@ declare module "fs" {
   function symlinkSync(
     target: PathLike,
     path: PathLike,
-    type?: SimlinkType,
+    type?: SymlinkType,
   ): void;
   /**
    * Reads the contents of the symbolic link referred to by `path`. The callback gets

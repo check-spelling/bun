@@ -44,7 +44,7 @@ receive_gpg_keys() {
     local keys=${!1}
     get_common_setting GPG_KEY_SERVERS true
 
-    # Use a temporary locaiton for gpg keys to avoid polluting image
+    # Use a temporary location for gpg keys to avoid polluting image
     export GNUPGHOME="/tmp/tmp-gnupg"
     mkdir -p ${GNUPGHOME}
     chmod 700 ${GNUPGHOME}
@@ -57,7 +57,7 @@ receive_gpg_keys() {
         echo "(*) Downloading GPG key..."
         (echo "${keys}" | xargs -n 1 gpg --recv-keys) 2>&1 && gpg_ok="true"
         if [ "${gpg_ok}" != "true" ]; then
-            echo "(*) Failed getting key, retring in 10s..."
+            echo "(*) Failed getting key, retrying in 10s..."
             ((retry_count++))
             sleep 10s
         fi
@@ -113,7 +113,7 @@ receive_gpg_keys() {
         keyring_args="--no-default-keyring --keyring $2"
     fi
 
-    # Use a temporary locaiton for gpg keys to avoid polluting image
+    # Use a temporary location for gpg keys to avoid polluting image
     export GNUPGHOME="/tmp/tmp-gnupg"
     mkdir -p ${GNUPGHOME}
     chmod 700 ${GNUPGHOME}
@@ -126,7 +126,7 @@ receive_gpg_keys() {
         echo "(*) Downloading GPG key..."
         (echo "${keys}" | xargs -n 1 gpg -q ${keyring_args} --recv-keys) 2>&1 && gpg_ok="true"
         if [ "${gpg_ok}" != "true" ]; then
-            echo "(*) Failed getting key, retring in 10s..."
+            echo "(*) Failed getting key, retrying in 10s..."
             ((retry_count++))
             sleep 10s
         fi

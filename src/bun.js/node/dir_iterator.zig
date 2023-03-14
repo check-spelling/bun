@@ -235,7 +235,7 @@ pub const Iterator = switch (builtin.os.tag) {
         /// Memory such as file names referenced in this returned entry becomes invalid
         /// with subsequent calls to `next`, as well as when this `Dir` is deinitialized.
         pub fn next(self: *Self) Result {
-            // We intentinally use fd_readdir even when linked with libc,
+            // We intentionally use fd_readdir even when linked with libc,
             // since its implementation is exactly the same as below,
             // and we avoid the code complexity here.
             const w = os.wasi;

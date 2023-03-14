@@ -1857,7 +1857,7 @@ var require_wasi = __commonJS({
         if (memory == null) {
           memory = exports2.memory;
           if (!(memory instanceof WebAssembly.Memory)) {
-            throw new Error(`instance.exports.memory must be a WebAssembly.Memory. Recceived ${memory}.`);
+            throw new Error(`instance.exports.memory must be a WebAssembly.Memory. Received ${memory}.`);
           }
         }
         this.setMemory(memory);
