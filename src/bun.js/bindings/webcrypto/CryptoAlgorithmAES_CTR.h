@@ -45,7 +45,7 @@ public:
         Vector<uint8_t> counterVectorAfterOverflow() const;
 
     private:
-        // 128 bits integer with miminum required operators.
+        // 128 bits integer with minimum required operators.
         struct CounterBlockBits {
             void set();
             bool all() const;
