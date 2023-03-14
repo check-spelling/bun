@@ -427,24 +427,24 @@ test "indexOf" {
             "456",
         },
         .{
-            "/foo/bar/baz/bacon/eggs/lettuce/tomatoe",
+            "/foo/bar/baz/bacon/eggs/lettuce/tomato",
             "bacon",
         },
         .{
-            "/foo/bar/baz/bacon////eggs/lettuce/tomatoe",
+            "/foo/bar/baz/bacon////eggs/lettuce/tomato",
             "eggs",
         },
         .{
-            "////////////////zfoo/bar/baz/bacon/eggs/lettuce/tomatoe",
+            "////////////////zfoo/bar/baz/bacon/eggs/lettuce/tomato",
             "/",
         },
         .{
-            "/okay/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomatoe",
-            "/tomatoe",
+            "/okay/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomato",
+            "/tomato",
         },
         .{
-            "/okay///////////so much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomatoe",
-            "/tomatoe",
+            "/okay///////////so much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!much length i can't believe it!/well/thats/even/longer/now/well/thats/even/longer/now/well/thats/even/longer/now/foo/bar/baz/bacon/eggs/lettuce/tomato",
+            "/tomato",
         },
     };
 
