@@ -95,7 +95,7 @@ export default class RuntimeError {
       }
       var sanitizedLine = line.replace(/^\s+/, "").replace(/\(eval code/g, "(");
 
-      // capture and preseve the parenthesized location "(/foo/my bar.js:12:87)" in
+      // capture and preserve the parenthesized location "(/foo/my bar.js:12:87)" in
       // case it has spaces in it, as the string is split on \s+ later on
       var location = sanitizedLine.match(/ (\((.+):(\d+):(\d+)\)$)/);
 
