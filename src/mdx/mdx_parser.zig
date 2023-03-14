@@ -901,7 +901,7 @@ pub const MDParser = struct {
             }
 
             // Check for indented code
-            // Note: indented code block cannot interrupt a paragrpah
+            // Note: indented code block cannot interrupt a paragraph
             if (line.indent >= this.code_indent_offset and
                 (pivot_line.tag == .blank or
                 pivot_line.tag == .indented_code))
