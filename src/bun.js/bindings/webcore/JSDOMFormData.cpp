@@ -55,7 +55,7 @@
 #include <wtf/PointerPreparations.h>
 #include <wtf/URL.h>
 #include "ZigGeneratedClasses.h"
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 
 namespace WebCore {
 using namespace JSC;

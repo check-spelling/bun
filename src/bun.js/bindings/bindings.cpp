@@ -3,7 +3,7 @@
 #include "headers.h"
 
 #include "BunClientData.h"
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 
 #include "JavaScriptCore/AggregateError.h"
 #include "JavaScriptCore/BytecodeIndex.h"

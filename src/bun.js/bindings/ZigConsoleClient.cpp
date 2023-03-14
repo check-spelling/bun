@@ -8,7 +8,7 @@
 #include "ZigConsoleClient.h"
 #include "wtf/text/WTFString.h"
 
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 
 using ScriptArguments = Inspector::ScriptArguments;
 using MessageType = JSC::MessageType;

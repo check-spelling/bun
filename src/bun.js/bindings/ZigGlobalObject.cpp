@@ -69,7 +69,7 @@
 #include "JavaScriptCore/JSCallbackObject.h"
 #include "JavaScriptCore/JSClassRef.h"
 #include "JavaScriptCore/CallData.h"
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 
 #include "BunClientData.h"
 

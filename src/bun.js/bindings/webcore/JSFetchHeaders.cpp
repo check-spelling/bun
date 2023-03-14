@@ -56,7 +56,7 @@
 #include <wtf/URL.h>
 #include <wtf/Vector.h>
 
-#include "GCDefferalContext.h"
+#include "GCDeferralContext.h"
 
 namespace WebCore {
 using namespace JSC;
