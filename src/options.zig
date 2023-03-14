@@ -36,7 +36,7 @@ const assert = std.debug.assert;
 pub const WriteDestination = enum {
     stdout,
     disk,
-    // eventaully: wasm
+    // eventually: wasm
 };
 
 pub fn validatePath(
