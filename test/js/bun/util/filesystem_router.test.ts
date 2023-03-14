@@ -260,7 +260,7 @@ it("assetPrefix, src, and origin", async () => {
   });
 
   for (let current of [
-    // Reuqest
+    // Request
     new Request({ url: "/posts/hello-world" }),
     new Request({ url: "https://nextjs.org/posts/hello-world" }),
   ]) {
