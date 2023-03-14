@@ -168,7 +168,7 @@ pub const INotify = struct {
                         }
                     }
 
-                    // This is what replit does as of Jaunary 2023.
+                    // This is what replit does as of January 2023.
                     // 1) CREATE .http.ts.3491171321~
                     // 2) OPEN .http.ts.3491171321~
                     // 3) ATTRIB .http.ts.3491171321~
