@@ -144,7 +144,7 @@ function requireESM(resolved) {
   }
 
   if (!entry || !entry.evaluated || !entry.module) {
-    @throwTypeError(`require() failed to evaluate module \"${resolved}\". This is an internal consistentency error.`);
+    @throwTypeError(`require() failed to evaluate module \"${resolved}\". This is an internal consistency error.`);
   }
   var exports = @Loader.getModuleNamespaceObject(entry.module);
   var commonJS = exports.default;

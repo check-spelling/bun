@@ -339,7 +339,7 @@ export function dlopen(path, options) {
         path.includes("/") ? `${key} (${path.split("/").pop()})` : `${key} (${path})`,
       );
     } else {
-      // consistentcy
+      // consistency
       result.symbols[key].native = result.symbols[key];
     }
   }
@@ -355,7 +355,7 @@ export function linkSymbols(options) {
     if (options[key]?.args?.length || FFIType[options[key]?.returns] === FFIType.cstring) {
       result.symbols[key] = FFIBuilder(options[key].args ?? [], options[key].returns ?? FFIType.void, symbol, key);
     } else {
-      // consistentcy
+      // consistency
       result.symbols[key].native = result.symbols[key];
     }
   }

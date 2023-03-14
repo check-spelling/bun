@@ -80,7 +80,7 @@ namespace Zig {
 // 8 bit byte
 // we tag the final two bits
 // so 56 bits are copied over
-// rest we zero out for consistentcy
+// rest we zero out for consistency
 static const unsigned char* untag(const unsigned char* ptr)
 {
     return reinterpret_cast<const unsigned char*>(
