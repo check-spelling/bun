@@ -197,7 +197,7 @@ declare module "bun:sqlite" {
      *
      * @param sql The SQL query to compile
      *
-     * @returns `Statment` instance
+     * @returns `Statement` instance
      *
      * Under the hood, this calls `sqlite3_prepare_v3`.
      *
@@ -225,7 +225,7 @@ declare module "bun:sqlite" {
      * @param sql The SQL query to compile
      * @param params Optional bindings for the query
      *
-     * @returns `Statment` instance
+     * @returns `Statement` instance
      *
      * Under the hood, this calls `sqlite3_prepare_v3`.
      *
