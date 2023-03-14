@@ -18184,7 +18184,7 @@ var require_der2 = __commonJS({
           ? this._isPrintstr(str)
             ? this._createEncoderBuffer(str)
             : this.reporter.error(
-                "Encoding of string type: printstr supports only latin upper and lower case letters, digits, space, apostrophe, left and rigth parenthesis, plus sign, comma, hyphen, dot, slash, colon, equal sign, question mark",
+                "Encoding of string type: printstr supports only latin upper and lower case letters, digits, space, apostrophe, left and right parenthesis, plus sign, comma, hyphen, dot, slash, colon, equal sign, question mark",
               )
           : /str$/.test(tag)
           ? this._createEncoderBuffer(str)
