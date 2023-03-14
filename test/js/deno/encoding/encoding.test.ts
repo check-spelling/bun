@@ -289,16 +289,16 @@ Deno.test(function toStringShouldBeWebCompatibility() {
 });
 Deno.test(function textEncoderShouldCoerceToString() {
     const encoder = new TextEncoder();
-    const fixutreText = "text";
+    const fixtureText = "text";
     const fixture = {
         toString () {
-            return fixutreText;
+            return fixtureText;
         }
     };
     const bytes = encoder.encode(fixture as unknown as string);
     const decoder = new TextDecoder();
     const decoded = decoder.decode(bytes);
-    assertEquals(decoded, fixutreText);
+    assertEquals(decoded, fixtureText);
 });
 Deno.test(function binaryEncode() {
     const ops = Deno[Deno.internal].core.ops;
