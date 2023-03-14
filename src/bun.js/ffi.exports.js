@@ -335,7 +335,7 @@ export function dlopen(path, options) {
         // instead of
         //    "/usr/lib/sqlite3.so"
         // we want
-        //    "sqlite3_get_version() - sqlit3.so"
+        //    "sqlite3_get_version() - sqlite3.so"
         path.includes("/") ? `${key} (${path.split("/").pop()})` : `${key} (${path})`,
       );
     } else {
