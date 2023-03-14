@@ -1957,7 +1957,7 @@ pub const Package = extern struct {
 
             // We lose the bin info here
             // package.bin = package_version.bin.clone(string_buf, manifest.extern_strings_bin_entries, extern_strings_list.items, extern_strings_slice, @TypeOf(&string_builder), &string_builder);
-            // and the integriy hash
+            // and the integrity hash
             // package.meta.integrity = package_version.integrity;
 
             package.meta.arch = package_json.arch;
