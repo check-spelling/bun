@@ -220,8 +220,8 @@ const char* const s_processObjectInternalsGetStdioWriteStreamCode =
     "  function isFastEncoding(encoding) {\n" \
     "    if (!encoding) return true;\n" \
     "\n" \
-    "    var normalied = encoding.toLowerCase();\n" \
-    "    return normalied === \"utf8\" || normalied === \"utf-8\" || normalied === \"buffer\" || normalied === \"binary\";\n" \
+    "    var normalized = encoding.toLowerCase();\n" \
+    "    return normalized === \"utf8\" || normalized === \"utf-8\" || normalized === \"buffer\" || normalized === \"binary\";\n" \
     "  }\n" \
     "\n" \
     "  var readline;\n" \
