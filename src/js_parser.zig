@@ -13124,7 +13124,7 @@ fn NewParser_(
                 return p.newExpr(E.Identifier{ .ref = ref }, loc);
             }
 
-            // oroigianlly was !=- modepassthrough
+            // originally was !=- modepassthrough
             if (!p.fn_only_data_visit.is_this_nested) {
                 if (p.has_es_module_syntax) {
                     // In an ES6 module, "this" is supposed to be undefined. Instead of
