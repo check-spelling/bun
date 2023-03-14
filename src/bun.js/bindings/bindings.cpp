@@ -2111,7 +2111,7 @@ void JSC__JSPromise__resolve(JSC__JSPromise* arg0, JSC__JSGlobalObject* arg1,
     arg0->resolve(arg1, JSC::JSValue::decode(JSValue2));
 }
 
-// This implementation closely mimicks the one in JSC::JSPromise::resolve
+// This implementation closely mimics the one in JSC::JSPromise::resolve
 void JSC__JSPromise__resolveOnNextTick(JSC__JSPromise* promise, JSC__JSGlobalObject* lexicalGlobalObject,
     JSC__JSValue encodedValue)
 {
@@ -2132,7 +2132,7 @@ bool JSC__JSValue__isAnyError(JSC__JSValue JSValue0)
     return type == JSC::ErrorInstanceType;
 }
 
-// This implementation closely mimicks the one in JSC::JSPromise::reject
+// This implementation closely mimics the one in JSC::JSPromise::reject
 void JSC__JSPromise__rejectOnNextTickWithHandled(JSC__JSPromise* promise, JSC__JSGlobalObject* lexicalGlobalObject,
     JSC__JSValue encodedValue, bool handled)
 {
