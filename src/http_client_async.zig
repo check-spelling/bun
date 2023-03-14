@@ -2299,7 +2299,7 @@ pub fn toResult(this: *HTTPClient, metadata: HTTPResponseMetadata) HTTPClientRes
 
 // preallocate a buffer for the body no more than 256 MB
 // the intent is to avoid an OOM caused by a malicious server
-// reporting gigantic Conten-Length and then
+// reporting gigantic Content-Length and then
 // never finishing sending the body
 const preallocate_max = 1024 * 1024 * 256;
 
