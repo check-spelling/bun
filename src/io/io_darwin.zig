@@ -969,7 +969,7 @@ fn submitWithIncrementPending(
             io: *IO,
             _completion: *Completion,
         ) void {
-            // Perform the actual operaton
+            // Perform the actual operation
             const op_data = &@field(_completion.operation, @tagName(operation_tag));
 
             const result = OperationImpl.doOperation(op_data);
