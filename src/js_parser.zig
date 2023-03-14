@@ -7100,7 +7100,7 @@ fn NewParser_(
                                             try p.lexer.next();
                                             if (p.lexer.has_newline_before) {
                                                 try p.log.addErrorFmt(p.source, type_range.end(), p.allocator, "Unexpected newline after \"type\"", .{});
-                                                return error.SynaxError;
+                                                return error.SyntaxError;
                                             }
                                             var skipper = ParseStatementOptions{ .is_module_scope = opts.is_module_scope, .is_export = true };
                                             try p.skipTypeScriptTypeStmt(&skipper);
