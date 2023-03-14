@@ -699,7 +699,7 @@ bool parseRange(StringView range, long long& rangeOffset, long long& rangeEnd, l
         return true;
     }
 
-    // Otherwise, the first-byte-position and the last-byte-position are provied.
+    // Otherwise, the first-byte-position and the last-byte-position are provided.
     // Examples:
     //     0-499
     //     500-
