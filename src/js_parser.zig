@@ -1116,7 +1116,7 @@ pub const SideEffects = enum(u1) {
         }
     }
 
-    pub fn simpifyUnusedExpr(p: anytype, expr: Expr) ?Expr {
+    pub fn simplifyUnusedExpr(p: anytype, expr: Expr) ?Expr {
         switch (expr.data) {
             .e_null, .e_undefined, .e_missing, .e_boolean, .e_number, .e_big_int, .e_string, .e_this, .e_reg_exp, .e_function, .e_arrow, .e_import_meta => {
                 return null;
@@ -1137,12 +1137,12 @@ pub const SideEffects = enum(u1) {
                 }
             },
             .e_if => |__if__| {
-                __if__.yes = simpifyUnusedExpr(p, __if__.yes) orelse __if__.yes.toEmpty();
-                __if__.no = simpifyUnusedExpr(p, __if__.no) orelse __if__.no.toEmpty();
+                __if__.yes = simplifyUnusedExpr(p, __if__.yes) orelse __if__.yes.toEmpty();
+                __if__.no = simplifyUnusedExpr(p, __if__.no) orelse __if__.no.toEmpty();
 
                 // "foo() ? 1 : 2" => "foo()"
                 if (__if__.yes.isEmpty() and __if__.no.isEmpty()) {
-                    return simpifyUnusedExpr(p, __if__.test_);
+                    return simplifyUnusedExpr(p, __if__.test_);
                 }
 
                 // "foo() ? 1 : bar()" => "foo() || bar()"
@@ -1170,7 +1170,7 @@ pub const SideEffects = enum(u1) {
                 // such as "toString" or "valueOf". They must also never throw any exceptions.
                 switch (un.op) {
                     .un_void, .un_not => {
-                        return simpifyUnusedExpr(p, un.value);
+                        return simplifyUnusedExpr(p, un.value);
                     },
                     .un_typeof => {
                         // "typeof x" must not be transformed into if "x" since doing so could
@@ -1180,7 +1180,7 @@ pub const SideEffects = enum(u1) {
                             return null;
                         }
 
-                        return simpifyUnusedExpr(p, un.value);
+                        return simplifyUnusedExpr(p, un.value);
                     },
 
                     else => {},
@@ -1193,7 +1193,7 @@ pub const SideEffects = enum(u1) {
                 // can be removed. The annotation causes us to ignore the target.
                 if (call.can_be_unwrapped_if_unused) {
                     if (call.args.len > 0) {
-                        return Expr.joinAllWithCommaCallback(call.args.slice(), @TypeOf(p), p, simpifyUnusedExpr, p.allocator);
+                        return Expr.joinAllWithCommaCallback(call.args.slice(), @TypeOf(p), p, simplifyUnusedExpr, p.allocator);
                     }
                 }
             },
@@ -1204,8 +1204,8 @@ pub const SideEffects = enum(u1) {
                     // such as "toString" or "valueOf". They must also never throw any exceptions.
                     .bin_strict_eq, .bin_strict_ne, .bin_comma => {
                         return Expr.joinWithComma(
-                            simpifyUnusedExpr(p, bin.left) orelse bin.left.toEmpty(),
-                            simpifyUnusedExpr(p, bin.right) orelse bin.right.toEmpty(),
+                            simplifyUnusedExpr(p, bin.left) orelse bin.left.toEmpty(),
+                            simplifyUnusedExpr(p, bin.right) orelse bin.right.toEmpty(),
                             p.allocator,
                         );
                     },
@@ -1218,18 +1218,18 @@ pub const SideEffects = enum(u1) {
                     .bin_loose_ne,
                     => {
                         if (isPrimitiveWithSideEffects(bin.left.data) and isPrimitiveWithSideEffects(bin.right.data)) {
-                            return Expr.joinWithComma(simpifyUnusedExpr(p, bin.left) orelse bin.left.toEmpty(), simpifyUnusedExpr(p, bin.right) orelse bin.right.toEmpty(), p.allocator);
+                            return Expr.joinWithComma(simplifyUnusedExpr(p, bin.left) orelse bin.left.toEmpty(), simplifyUnusedExpr(p, bin.right) orelse bin.right.toEmpty(), p.allocator);
                         }
                     },
 
                     .bin_logical_and, .bin_logical_or, .bin_nullish_coalescing => {
-                        bin.right = simpifyUnusedExpr(p, bin.right) orelse bin.right.toEmpty();
+                        bin.right = simplifyUnusedExpr(p, bin.right) orelse bin.right.toEmpty();
                         // Preserve short-circuit behavior: the left expression is only unused if
                         // the right expression can be completely removed. Otherwise, the left
                         // expression is important for the branch.
 
                         if (bin.right.isEmpty())
-                            return simpifyUnusedExpr(p, bin.left);
+                            return simplifyUnusedExpr(p, bin.left);
                     },
 
                     else => {},
@@ -1253,7 +1253,7 @@ pub const SideEffects = enum(u1) {
                             var prop = prop_;
                             if (prop_.kind != .spread) {
                                 if (prop.value != null) {
-                                    if (simpifyUnusedExpr(p, prop.value.?)) |value| {
+                                    if (simplifyUnusedExpr(p, prop.value.?)) |value| {
                                         prop.value = value;
                                     } else if (!prop.flags.contains(.is_computed)) {
                                         continue;
@@ -1314,7 +1314,7 @@ pub const SideEffects = enum(u1) {
                     items,
                     @TypeOf(p),
                     p,
-                    simpifyUnusedExpr,
+                    simplifyUnusedExpr,
                     p.allocator,
                 );
             },
@@ -1324,7 +1324,7 @@ pub const SideEffects = enum(u1) {
                 // can be removed. The annotation causes us to ignore the target.
                 if (call.can_be_unwrapped_if_unused) {
                     if (call.args.len > 0) {
-                        return Expr.joinAllWithCommaCallback(call.args.slice(), @TypeOf(p), p, simpifyUnusedExpr, p.allocator);
+                        return Expr.joinAllWithCommaCallback(call.args.slice(), @TypeOf(p), p, simplifyUnusedExpr, p.allocator);
                     }
                 }
             },
@@ -14407,7 +14407,7 @@ fn NewParser_(
                             p.is_control_flow_dead = old;
 
                             if (side_effects.side_effects == .could_have_side_effects) {
-                                return Expr.joinWithComma(SideEffects.simpifyUnusedExpr(p, e_.test_) orelse p.newExpr(E.Missing{}, e_.test_.loc), e_.yes, p.allocator);
+                                return Expr.joinWithComma(SideEffects.simplifyUnusedExpr(p, e_.test_) orelse p.newExpr(E.Missing{}, e_.test_.loc), e_.yes, p.allocator);
                             }
 
                             // "(1 ? fn : 2)()" => "fn()"
@@ -14428,7 +14428,7 @@ fn NewParser_(
 
                             // "(a, false) ? b : c" => "a, c"
                             if (side_effects.side_effects == .could_have_side_effects) {
-                                return Expr.joinWithComma(SideEffects.simpifyUnusedExpr(p, e_.test_) orelse p.newExpr(E.Missing{}, e_.test_.loc), e_.no, p.allocator);
+                                return Expr.joinWithComma(SideEffects.simplifyUnusedExpr(p, e_.test_) orelse p.newExpr(E.Missing{}, e_.test_.loc), e_.no, p.allocator);
                             }
 
                             // "(1 ? fn : 2)()" => "fn()"
@@ -16046,7 +16046,7 @@ fn NewParser_(
                     p.stmt_expr_value = data.value.data;
                     data.value = p.visitExpr(data.value);
                     // simplify unused
-                    data.value = SideEffects.simpifyUnusedExpr(p, data.value) orelse data.value.toEmpty();
+                    data.value = SideEffects.simplifyUnusedExpr(p, data.value) orelse data.value.toEmpty();
                 },
                 .s_throw => |data| {
                     data.value = p.visitExpr(data.value);
@@ -16167,7 +16167,7 @@ fn NewParser_(
                             if (data.no == null or !SideEffects.shouldKeepStmtInDeadControlFlow(data.no.?, p.allocator)) {
                                 if (effects.side_effects == .could_have_side_effects) {
                                     // Keep the condition if it could have side effects (but is still known to be truthy)
-                                    if (SideEffects.simpifyUnusedExpr(p, data.test_)) |test_| {
+                                    if (SideEffects.simplifyUnusedExpr(p, data.test_)) |test_| {
                                         stmts.append(p.s(S.SExpr{ .value = test_ }, test_.loc)) catch unreachable;
                                     }
                                 }
@@ -16181,7 +16181,7 @@ fn NewParser_(
                             if (!SideEffects.shouldKeepStmtInDeadControlFlow(data.yes, p.allocator)) {
                                 if (effects.side_effects == .could_have_side_effects) {
                                     // Keep the condition if it could have side effects (but is still known to be truthy)
-                                    if (SideEffects.simpifyUnusedExpr(p, data.test_)) |test_| {
+                                    if (SideEffects.simplifyUnusedExpr(p, data.test_)) |test_| {
                                         stmts.append(p.s(S.SExpr{ .value = test_ }, test_.loc)) catch unreachable;
                                     }
                                 }
