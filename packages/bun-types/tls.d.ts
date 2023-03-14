@@ -549,7 +549,7 @@ declare module "tls" {
      */
     pskIdentityHint?: string | undefined;
   }
-  interface PSKCallbackNegotation {
+  interface PSKCallbackNegotiation {
     psk: DataView | TypedArray;
     identity: string;
   }
@@ -583,7 +583,7 @@ declare module "tls" {
      * compatible with the selected cipher's digest.
      * `identity` must use UTF-8 encoding.
      */
-    pskCallback?(hint: string | null): PSKCallbackNegotation | null;
+    pskCallback?(hint: string | null): PSKCallbackNegotiation | null;
   }
   /**
    * Accepts encrypted connections using TLS or SSL.
