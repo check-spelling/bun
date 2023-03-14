@@ -45,7 +45,7 @@ function loadCJS2ESM(resolvedSpecifier) {
     // entry.fetch is a Promise<SourceCode>
     // SourceCode is not a string, it's a JSC::SourceCode object
     // this pulls it out of the promise without delaying by a tick
-    // the promise is already fullfilled by @fullfillModuleSync
+    // the promise is already fulfilled by @fulfillModuleSync
     var sourceCodeObject = @getPromiseInternalField(
       entry.fetch,
       @promiseFieldReactionsOrResult
