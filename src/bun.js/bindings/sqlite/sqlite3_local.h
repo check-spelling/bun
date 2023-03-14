@@ -4466,7 +4466,7 @@ typedef struct sqlite3_context sqlite3_context;
 ** with it may be passed. ^It is called to dispose of the BLOB or string even
 ** if the call to the bind API fails, except the destructor is not called if
 ** the third parameter is a NULL pointer or the fourth parameter is negative.
-** ^ (2) The special constant, [SQLITE_STATIC], may be passsed to indicate that
+** ^ (2) The special constant, [SQLITE_STATIC], may be passed to indicate that
 ** the application remains responsible for disposing of the object. ^In this
 ** case, the object and the provided pointer to it must remain valid until
 ** either the prepared statement is finalized or the same SQL parameter is
