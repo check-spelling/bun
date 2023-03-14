@@ -1372,7 +1372,7 @@ pub fn NewApp(comptime ssl: bool) type {
                     us_socket_mark_needs_more_not_ssl(res.downcast());
                 }
             }
-            pub fn onAborted(res: *Response, comptime UserDataType: type, comptime handler: fn (UserDataType, *Response) void, opcional_data: UserDataType) void {
+            pub fn onAborted(res: *Response, comptime UserDataType: type, comptime handler: fn (UserDataType, *Response) void, optional_data: UserDataType) void {
                 const Wrapper = struct {
                     pub fn handle(this: *uws_res, user_data: ?*anyopaque) callconv(.C) void {
                         if (comptime UserDataType == void) {
@@ -1382,7 +1382,7 @@ pub fn NewApp(comptime ssl: bool) type {
                         }
                     }
                 };
-                uws_res_on_aborted(ssl_flag, res.downcast(), Wrapper.handle, opcional_data);
+                uws_res_on_aborted(ssl_flag, res.downcast(), Wrapper.handle, optional_data);
             }
 
             pub fn clearAborted(res: *Response) void {
@@ -1393,7 +1393,7 @@ pub fn NewApp(comptime ssl: bool) type {
                 res: *Response,
                 comptime UserDataType: type,
                 comptime handler: fn (UserDataType, *Response, chunk: []const u8, last: bool) void,
-                opcional_data: UserDataType,
+                optional_data: UserDataType,
             ) void {
                 const Wrapper = struct {
                     pub fn handle(this: *uws_res, chunk_ptr: [*c]const u8, len: usize, last: bool, user_data: ?*anyopaque) callconv(.C) void {
@@ -1415,7 +1415,7 @@ pub fn NewApp(comptime ssl: bool) type {
                     }
                 };
 
-                uws_res_on_data(ssl_flag, res.downcast(), Wrapper.handle, opcional_data);
+                uws_res_on_data(ssl_flag, res.downcast(), Wrapper.handle, optional_data);
             }
 
             pub fn endStream(res: *Response, close_connection: bool) void {
@@ -1446,7 +1446,7 @@ pub fn NewApp(comptime ssl: bool) type {
                 res: *Response,
                 comptime UserDataType: type,
                 comptime handler: fn (UserDataType) void,
-                opcional_data: UserDataType,
+                optional_data: UserDataType,
             ) void {
                 const Wrapper = struct {
                     pub fn handle(user_data: ?*anyopaque) callconv(.C) void {
@@ -1462,14 +1462,14 @@ pub fn NewApp(comptime ssl: bool) type {
                     }
                 };
 
-                uws_res_cork(ssl_flag, res.downcast(), opcional_data, Wrapper.handle);
+                uws_res_cork(ssl_flag, res.downcast(), optional_data, Wrapper.handle);
             }
 
             // pub fn onSocketWritable(
             //     res: *Response,
             //     comptime UserDataType: type,
             //     comptime handler: fn (UserDataType, fd: i32) void,
-            //     opcional_data: UserDataType,
+            //     optional_data: UserDataType,
             // ) void {
             //     const Wrapper = struct {
             //         pub fn handle(user_data: ?*anyopaque, fd: i32) callconv(.C) void {
@@ -1703,12 +1703,12 @@ extern fn uws_res_get_write_offset(ssl: i32, res: *uws_res) uintmax_t;
 extern fn uws_res_override_write_offset(ssl: i32, res: *uws_res, uintmax_t) void;
 extern fn uws_res_has_responded(ssl: i32, res: *uws_res) bool;
 extern fn uws_res_on_writable(ssl: i32, res: *uws_res, handler: ?*const fn (*uws_res, uintmax_t, ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque) void;
-extern fn uws_res_on_aborted(ssl: i32, res: *uws_res, handler: ?*const fn (*uws_res, ?*anyopaque) callconv(.C) void, opcional_data: ?*anyopaque) void;
+extern fn uws_res_on_aborted(ssl: i32, res: *uws_res, handler: ?*const fn (*uws_res, ?*anyopaque) callconv(.C) void, optional_data: ?*anyopaque) void;
 extern fn uws_res_on_data(
     ssl: i32,
     res: *uws_res,
     handler: ?*const fn (*uws_res, [*c]const u8, usize, bool, ?*anyopaque) callconv(.C) void,
-    opcional_data: ?*anyopaque,
+    optional_data: ?*anyopaque,
 ) void;
 extern fn uws_res_upgrade(
     ssl: i32,

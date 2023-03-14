@@ -1193,26 +1193,26 @@ extern "C"
 
   void uws_res_on_writable(int ssl, uws_res_t *res,
                            bool (*handler)(uws_res_t *res, uintmax_t,
-                                           void *opcional_data),
-                           void *opcional_data)
+                                           void *optional_data),
+                           void *optional_data)
   {
     if (ssl)
     {
       uWS::HttpResponse<true> *uwsRes = (uWS::HttpResponse<true> *)res;
-      uwsRes->onWritable([handler, res, opcional_data](uintmax_t a)
-                         { return handler(res, a, opcional_data); });
+      uwsRes->onWritable([handler, res, optional_data](uintmax_t a)
+                         { return handler(res, a, optional_data); });
     }
     else
     {
       uWS::HttpResponse<false> *uwsRes = (uWS::HttpResponse<false> *)res;
-      uwsRes->onWritable([handler, res, opcional_data](uintmax_t a)
-                         { return handler(res, a, opcional_data); });
+      uwsRes->onWritable([handler, res, optional_data](uintmax_t a)
+                         { return handler(res, a, optional_data); });
     }
   }
 
   void uws_res_on_aborted(int ssl, uws_res_t *res,
-                          void (*handler)(uws_res_t *res, void *opcional_data),
-                          void *opcional_data)
+                          void (*handler)(uws_res_t *res, void *optional_data),
+                          void *optional_data)
   {
     if (ssl)
     {
@@ -1220,8 +1220,8 @@ extern "C"
       if (handler)
       {
         uwsRes->onAborted(
-            [handler, res, opcional_data]
-            { handler(res, opcional_data); });
+            [handler, res, optional_data]
+            { handler(res, optional_data); });
       }
       else
       {
@@ -1234,8 +1234,8 @@ extern "C"
       if (handler)
       {
         uwsRes->onAborted(
-            [handler, res, opcional_data]
-            { handler(res, opcional_data); });
+            [handler, res, optional_data]
+            { handler(res, optional_data); });
       }
       else
       {
@@ -1247,20 +1247,20 @@ extern "C"
   void uws_res_on_data(int ssl, uws_res_t *res,
                        void (*handler)(uws_res_t *res, const char *chunk,
                                        size_t chunk_length, bool is_end,
-                                       void *opcional_data),
-                       void *opcional_data)
+                                       void *optional_data),
+                       void *optional_data)
   {
     if (ssl)
     {
       uWS::HttpResponse<true> *uwsRes = (uWS::HttpResponse<true> *)res;
-      uwsRes->onData([handler, res, opcional_data](auto chunk, bool is_end)
-                     { handler(res, chunk.data(), chunk.length(), is_end, opcional_data); });
+      uwsRes->onData([handler, res, optional_data](auto chunk, bool is_end)
+                     { handler(res, chunk.data(), chunk.length(), is_end, optional_data); });
     }
     else
     {
       uWS::HttpResponse<false> *uwsRes = (uWS::HttpResponse<false> *)res;
-      uwsRes->onData([handler, res, opcional_data](auto chunk, bool is_end)
-                     { handler(res, chunk.data(), chunk.length(), is_end, opcional_data); });
+      uwsRes->onData([handler, res, optional_data](auto chunk, bool is_end)
+                     { handler(res, chunk.data(), chunk.length(), is_end, optional_data); });
     }
   }
 
