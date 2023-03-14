@@ -1122,8 +1122,8 @@ pub const CodeCount = struct {
 const ImportQueueFifo = std.fifo.LinearFifo(u32, .Dynamic);
 const QueuedList = std.ArrayList(u32);
 threadlocal var global_queued: QueuedList = undefined;
-threadlocal var global_import_queud: ImportQueueFifo = undefined;
-threadlocal var global_bundle_queud: QueuedList = undefined;
+threadlocal var global_import_queued: ImportQueueFifo = undefined;
+threadlocal var global_bundle_queued: QueuedList = undefined;
 threadlocal var has_set_global_queue = false;
 pub fn NewBundler(
     comptime Writer: type,
@@ -1163,20 +1163,20 @@ pub fn NewBundler(
             const start_count = writer.written;
             if (!has_set_global_queue) {
                 global_queued = QueuedList.init(default_allocator);
-                global_import_queud = ImportQueueFifo.init(default_allocator);
-                global_bundle_queud = QueuedList.init(default_allocator);
+                global_import_queued = ImportQueueFifo.init(default_allocator);
+                global_bundle_queued = QueuedList.init(default_allocator);
                 has_set_global_queue = true;
             } else {
                 global_queued.clearRetainingCapacity();
-                global_import_queud.head = 0;
-                global_import_queud.count = 0;
-                global_bundle_queud.clearRetainingCapacity();
+                global_import_queued.head = 0;
+                global_import_queued.count = 0;
+                global_bundle_queued.clearRetainingCapacity();
             }
 
             var this = CSSBundler{
                 .queued = &global_queued,
-                .import_queue = &global_import_queud,
-                .bundle_queue = &global_bundle_queud,
+                .import_queue = &global_import_queued,
+                .bundle_queue = &global_bundle_queued,
                 .writer = writer,
                 .fs_reader = fs_reader,
                 .fs = fs,
