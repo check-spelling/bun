@@ -248,7 +248,7 @@ pub const SplitIterator = struct {
 //         const last_end = @min(end + k - 1, buf.len);
 //         const last_start = last_end - n;
 
-//         // Look for the first character in the delimter
+//         // Look for the first character in the delimiter
 //         const first_chunk: V8x32 = buf[start..end][0..n].*;
 //         const last_chunk: V8x32 = buf[last_start..last_end][0..n].*;
 //         const mask = @bitCast(V1x32, first == first_chunk) & @bitCast(V1x32, last == last_chunk);
