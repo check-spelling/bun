@@ -78,10 +78,10 @@ describe("util.promisify", () => {
     it("double promisify", () => {
       function fn() {}
 
-      function promisifedFn() {}
-      fn[promisify.custom] = promisifedFn;
-      assert.strictEqual(promisify(fn), promisifedFn);
-      assert.strictEqual(promisify(promisify(fn)), promisifedFn);
+      function promisifiedFn() {}
+      fn[promisify.custom] = promisifiedFn;
+      assert.strictEqual(promisify(fn), promisifiedFn);
+      assert.strictEqual(promisify(promisify(fn)), promisifiedFn);
     });
 
     it.skip("should register shared promisify symbol", () => {
