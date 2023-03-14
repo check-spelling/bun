@@ -3683,7 +3683,7 @@ pub const NodeFS = struct {
                 {
                     var dest = args.path.sliceZ(&this.sync_error_buf);
                     std.os.unlinkZ(dest) catch |er| {
-                        // empircally, it seems to return AccessDenied when the
+                        // empirically, it seems to return AccessDenied when the
                         // file is actually a directory on macOS.
                         if (er == error.IsDir or
                             er == error.NotDir or
