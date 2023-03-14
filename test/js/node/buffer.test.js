@@ -1645,7 +1645,7 @@ it("Buffer.swap64", () => {
   }
 });
 
-it("Buffer.toString regessions", () => {
+it("Buffer.toString regressions", () => {
   expect(
     Buffer.from([65, 0])
       .toString("utf16le")
