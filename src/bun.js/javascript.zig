@@ -1593,7 +1593,7 @@ pub const VirtualMachine = struct {
         return loader.promise;
     }
 
-    /// A subtlelty of JavaScriptCore:
+    /// A subtlety of JavaScriptCore:
     /// JavaScriptCore has many release asserts that check an API lock is currently held
     /// We cannot hold it from Zig code because it relies on C++ ARIA to automatically release the lock
     /// and it is not safe to copy the lock itself
