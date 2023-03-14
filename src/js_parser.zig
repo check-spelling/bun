@@ -3512,7 +3512,7 @@ const ParserFeatures = struct {
 
     // *** How React Fast Refresh works ***
     //
-    //  Implmenetations:
+    //  Implementations:
     //   [0]: https://github.com/facebook/react/blob/master/packages/react-refresh/src/ReactFreshBabelPlugin.js
     //   [1]: https://github.com/swc-project/swc/blob/master/ecmascript/transforms/react/src/refresh/mod.rs
     //
