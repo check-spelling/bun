@@ -8623,9 +8623,9 @@ pub const OBJ_id_smime_aa_contentReference = blk: {
     _ = @as(c_long, 2);
     break :blk @as(c_long, 10);
 };
-pub const SN_id_smime_aa_encrypKeyPref = "id-smime-aa-encrypKeyPref";
-pub const NID_id_smime_aa_encrypKeyPref = @as(c_int, 222);
-pub const OBJ_id_smime_aa_encrypKeyPref = blk: {
+pub const SN_id_smime_aa_encryptKeyPref = "id-smime-aa-encryptKeyPref";
+pub const NID_id_smime_aa_encryptKeyPref = @as(c_int, 222);
+pub const OBJ_id_smime_aa_encryptKeyPref = blk: {
     _ = @as(c_long, 1);
     _ = @as(c_long, 2);
     _ = @as(c_long, 840);
