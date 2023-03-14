@@ -708,7 +708,7 @@ pub fn ParseJSON(
 ) !Expr {
     var parser = try JSONParser.init(allocator, source.*, log);
     switch (source.contents.len) {
-        // This is to be consisntent with how disabled JS files are handled
+        // This is to be consistent with how disabled JS files are handled
         0 => {
             return Expr{ .loc = logger.Loc{ .start = 0 }, .data = empty_object_data };
         },
@@ -740,7 +740,7 @@ pub fn ParseJSONUTF8(
     const len = source.contents.len;
 
     switch (len) {
-        // This is to be consisntent with how disabled JS files are handled
+        // This is to be consistent with how disabled JS files are handled
         0 => {
             return Expr{ .loc = logger.Loc{ .start = 0 }, .data = empty_object_data };
         },
@@ -765,7 +765,7 @@ pub fn ParseJSONUTF8(
 
 pub fn ParseJSONForMacro(source: *const logger.Source, log: *logger.Log, allocator: std.mem.Allocator) !Expr {
     switch (source.contents.len) {
-        // This is to be consisntent with how disabled JS files are handled
+        // This is to be consistent with how disabled JS files are handled
         0 => {
             return Expr{ .loc = logger.Loc{ .start = 0 }, .data = empty_object_data };
         },
@@ -800,7 +800,7 @@ pub const JSONParseResult = struct {
 
 pub fn ParseJSONForBundling(source: *const logger.Source, log: *logger.Log, allocator: std.mem.Allocator) !JSONParseResult {
     switch (source.contents.len) {
-        // This is to be consisntent with how disabled JS files are handled
+        // This is to be consistent with how disabled JS files are handled
         0 => {
             return JSONParseResult{ .expr = Expr{ .loc = logger.Loc{ .start = 0 }, .data = empty_object_data }, .tag = .empty };
         },
@@ -829,7 +829,7 @@ pub fn ParseJSONForBundling(source: *const logger.Source, log: *logger.Log, allo
 // threadlocal var env_json_auto_quote_buffer_loaded: bool = false;
 pub fn ParseEnvJSON(source: *const logger.Source, log: *logger.Log, allocator: std.mem.Allocator) !Expr {
     switch (source.contents.len) {
-        // This is to be consisntent with how disabled JS files are handled
+        // This is to be consistent with how disabled JS files are handled
         0 => {
             return Expr{ .loc = logger.Loc{ .start = 0 }, .data = empty_object_data };
         },
@@ -880,7 +880,7 @@ pub fn ParseEnvJSON(source: *const logger.Source, log: *logger.Log, allocator: s
 
 pub fn ParseTSConfig(source: *const logger.Source, log: *logger.Log, allocator: std.mem.Allocator) !Expr {
     switch (source.contents.len) {
-        // This is to be consisntent with how disabled JS files are handled
+        // This is to be consistent with how disabled JS files are handled
         0 => {
             return Expr{ .loc = logger.Loc{ .start = 0 }, .data = empty_object_data };
         },
