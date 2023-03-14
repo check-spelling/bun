@@ -835,7 +835,7 @@ fn diffCleanupMerge(allocator: std.mem.Allocator, diffs: *DiffList) DiffError!vo
                             try text_insert.replaceRange(allocator, 0, common_length, &.{});
                             try text_delete.replaceRange(allocator, 0, common_length, &.{});
                         }
-                        // Factor out any common suffixies.
+                        // Factor out any common suffixes.
                         // @ZigPort this seems very wrong
                         common_length = diffCommonSuffix(text_insert.items, text_delete.items);
                         if (common_length != 0) {
