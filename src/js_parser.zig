@@ -2290,7 +2290,7 @@ pub const Parser = struct {
 
         // The problem with our scan pass approach is type-only imports.
         // We don't have accurate symbol counts.
-        // So we don't have a good way to distuingish between a type-only import and not.
+        // So we don't have a good way to distinguish between a type-only import and not.
         if (comptime ParserType.parser_features.typescript) {
             p.parse_pass_symbol_uses = &scan_pass.used_symbols;
         }
