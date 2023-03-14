@@ -10277,14 +10277,14 @@ fn NewParser_(
                                 switch (keyword) {
                                     .p_get => {
                                         if (!opts.is_async and (js_lexer.PropertyModifierKeyword.List.get(raw) orelse .p_static) == .p_get) {
-                                            // p.markSyntaxFeautre(ObjectAccessors, name_range)
+                                            // p.markSyntaxFeature(ObjectAccessors, name_range)
                                             return try p.parseProperty(.get, opts, null);
                                         }
                                     },
 
                                     .p_set => {
                                         if (!opts.is_async and (js_lexer.PropertyModifierKeyword.List.get(raw) orelse .p_static) == .p_set) {
-                                            // p.markSyntaxFeautre(ObjectAccessors, name_range)
+                                            // p.markSyntaxFeature(ObjectAccessors, name_range)
                                             return try p.parseProperty(.set, opts, null);
                                         }
                                     },
@@ -10293,7 +10293,7 @@ fn NewParser_(
                                             opts.is_async = true;
                                             opts.async_range = name_range;
 
-                                            // p.markSyntaxFeautre(ObjectAccessors, name_range)
+                                            // p.markSyntaxFeature(ObjectAccessors, name_range)
                                             return try p.parseProperty(kind, opts, null);
                                         }
                                     },
