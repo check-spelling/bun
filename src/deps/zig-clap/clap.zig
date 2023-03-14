@@ -45,7 +45,7 @@ pub const Values = enum {
 ///         * "-abc=value"
 ///         * "-abcvalue"
 ///   * Long ("--long-param"): Should be used for less common parameters, or when no single character
-///                            can describe the paramter.
+///                            can describe the parameter.
 ///     * They can take a value two different ways.
 ///       * "--long-param value"
 ///       * "--long-param=value"
