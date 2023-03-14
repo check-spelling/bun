@@ -2157,7 +2157,7 @@ pub fn NewPrinter(
                     p.print(if (e.value) "true" else "false");
                 },
                 .e_string => |e| {
-                    e.resovleRopeIfNeeded(p.options.allocator);
+                    e.resolveRopeIfNeeded(p.options.allocator);
                     p.addSourceMapping(expr.loc);
 
                     // If this was originally a template literal, print it as one as long as we're not minifying
@@ -2191,7 +2191,7 @@ pub fn NewPrinter(
 
                     p.print("`");
                     if (e.head.isPresent()) {
-                        e.head.resovleRopeIfNeeded(p.options.allocator);
+                        e.head.resolveRopeIfNeeded(p.options.allocator);
 
                         p.printStringContent(&e.head, '`');
                     }
@@ -2201,7 +2201,7 @@ pub fn NewPrinter(
                         p.printExpr(part.value, .lowest, ExprFlag.None());
                         p.print("}");
                         if (part.tail.isPresent()) {
-                            part.tail.resovleRopeIfNeeded(p.options.allocator);
+                            part.tail.resolveRopeIfNeeded(p.options.allocator);
                             p.printStringContent(&part.tail, '`');
                         }
                     }
@@ -2796,7 +2796,7 @@ pub fn NewPrinter(
                 .e_string => |key| {
                     p.addSourceMapping(_key.loc);
                     if (key.isUTF8()) {
-                        key.resovleRopeIfNeeded(p.options.allocator);
+                        key.resolveRopeIfNeeded(p.options.allocator);
                         p.printSpaceBeforeIdentifier();
                         var allow_shorthand: bool = true;
                         // In react/cjs/react.development.js, there's part of a function like this:
@@ -3037,7 +3037,7 @@ pub fn NewPrinter(
 
                                 switch (property.key.data) {
                                     .e_string => |str| {
-                                        str.resovleRopeIfNeeded(p.options.allocator);
+                                        str.resolveRopeIfNeeded(p.options.allocator);
                                         p.addSourceMapping(property.key.loc);
 
                                         if (str.isUTF8()) {

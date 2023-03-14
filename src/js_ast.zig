@@ -1681,7 +1681,7 @@ pub const E = struct {
             return @ptrCast([*]const u16, @alignCast(@alignOf(u16), this.data.ptr))[0..this.data.len];
         }
 
-        pub fn resovleRopeIfNeeded(this: *String, allocator: std.mem.Allocator) void {
+        pub fn resolveRopeIfNeeded(this: *String, allocator: std.mem.Allocator) void {
             if (this.next == null or !this.isUTF8()) return;
             var str = this.next;
             var bytes = std.ArrayList(u8).initCapacity(allocator, this.rope_len) catch unreachable;
@@ -1696,7 +1696,7 @@ pub const E = struct {
         }
 
         pub fn slice(this: *String, allocator: std.mem.Allocator) []const u8 {
-            this.resovleRopeIfNeeded(allocator);
+            this.resolveRopeIfNeeded(allocator);
             return this.string(allocator) catch unreachable;
         }
 
@@ -3923,8 +3923,8 @@ pub const Expr = struct {
                     equality.ok = @as(Expr.Tag, right) == Expr.Tag.e_string;
                     if (equality.ok) {
                         var r = right.e_string;
-                        r.resovleRopeIfNeeded(allocator);
-                        l.resovleRopeIfNeeded(allocator);
+                        r.resolveRopeIfNeeded(allocator);
+                        l.resolveRopeIfNeeded(allocator);
                         equality.equal = r.eql(E.String, l);
                     }
                 },
