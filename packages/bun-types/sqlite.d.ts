@@ -736,7 +736,7 @@ declare module "bun:sqlite" {
    * It is lazily-initialized, so this will return `undefined` until the first
    * call to new Database().
    *
-   * The native module makes no gurantees about ABI stability, so it is left
+   * The native module makes no guarantees about ABI stability, so it is left
    * untyped
    *
    * If you need to use it directly for some reason, please let us know because
