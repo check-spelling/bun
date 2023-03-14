@@ -1237,7 +1237,7 @@ describe("readline.Interface", () => {
   it("should handle multi-line prompt cursor position", () => {
     const [rli, fi] = getInterface({
       terminal: true,
-      prompt: "\nfilledline\nwraping text\n> ",
+      prompt: "\nfilledline\nwrapping text\n> ",
     });
     fi.columns = 10;
     fi.emit("data", "t");
