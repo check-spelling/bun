@@ -15150,7 +15150,7 @@ var require_ec = __commonJS({
         isYOdd = j & 1,
         isSecondKey = j >> 1;
       if (r.cmp(this.curve.p.umod(this.curve.n)) >= 0 && isSecondKey)
-        throw new Error("Unable to find sencond key candidate");
+        throw new Error("Unable to find second key candidate");
       isSecondKey ? (r = this.curve.pointFromX(r.add(this.curve.n), isYOdd)) : (r = this.curve.pointFromX(r, isYOdd));
       var rInv = signature.r.invm(n),
         s1 = n.sub(e).mul(rInv).umod(n),

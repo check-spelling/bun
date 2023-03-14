@@ -98,7 +98,7 @@ static std::optional<Vector<uint8_t>> crypt(int operation, const Vector<uint8_t>
             return std::nullopt;
     }
 
-    // Sedond part
+    // Second part
     if (capacity < blocks) {
         size_t tailSize = inputText.size() - headSize;
 
