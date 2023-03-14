@@ -202,7 +202,7 @@ const char* const s_streamInternalsCreateFIFOCode =
     "    \"use strict\";\n" \
     "    var slice = @Array.prototype.slice;\n" \
     "\n" \
-    "    class Denqueue {\n" \
+    "    class Dequeue {\n" \
     "        constructor() {\n" \
     "          this._head = 0;\n" \
     "          this._tail = 0;\n" \
@@ -302,7 +302,7 @@ const char* const s_streamInternalsCreateFIFOCode =
     "      }\n" \
     "\n" \
     "  \n" \
-    "    return new Denqueue();\n" \
+    "    return new Dequeue();\n" \
     "})\n" \
 ;
 
