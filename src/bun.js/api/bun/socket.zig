@@ -878,7 +878,7 @@ fn NewSocket(comptime ssl: bool) type {
         handlers: *Handlers,
         this_value: JSC.JSValue = .zero,
         poll_ref: JSC.PollRef = JSC.PollRef.init(),
-        reffer: JSC.Ref = JSC.Ref.init(),
+        refer: JSC.Ref = JSC.Ref.init(),
         last_4: [4]u8 = .{ 0, 0, 0, 0 },
 
         // TODO: switch to something that uses `visitAggregate` and have the
@@ -1028,17 +1028,17 @@ fn NewSocket(comptime ssl: bool) type {
         }
 
         pub fn markActive(this: *This) void {
-            if (!this.reffer.has) {
+            if (!this.refer.has) {
                 this.handlers.markActive();
-                this.reffer.ref(this.handlers.vm);
+                this.refer.ref(this.handlers.vm);
                 this.has_pending_activity.store(true, .Release);
             }
         }
 
         pub fn markInactive(this: *This) void {
-            if (this.reffer.has) {
+            if (this.refer.has) {
                 var vm = this.handlers.vm;
-                this.reffer.unref(vm);
+                this.refer.unref(vm);
 
                 // we have to close the socket before the socket context is closed
                 // otherwise we will get a segfault
