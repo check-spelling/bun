@@ -617,7 +617,7 @@ if (typeof window !== "undefined") {
     }
 
     static activate(verboseOrFastRefresh: boolean = false) {
-      // Support browser-like envirnments where location and WebSocket exist
+      // Support browser-like environments where location and WebSocket exist
       // Maybe it'll work in Deno! Who knows.
       if (this.client || !("location" in globalThis) || !("WebSocket" in globalThis)) {
         return;
