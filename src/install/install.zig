@@ -3717,7 +3717,7 @@ pub const PackageManager = struct {
 
                     // GitHub (and eventually tarball URL) dependencies are not fully resolved until after the tarball is downloaded & extracted.
                     if (manager.processExtractedTarballPackage(&package_id, resolution, task.data.extract, comptime log_level)) |pkg| brk: {
-                        // In the middle of an install, you could end up needing to downlaod the github tarball for a dependency
+                        // In the middle of an install, you could end up needing to download the github tarball for a dependency
                         // We need to make sure we resolve the dependencies first before calling the onExtract callback
                         // TODO: move this into a separate function
                         var any_root = false;
