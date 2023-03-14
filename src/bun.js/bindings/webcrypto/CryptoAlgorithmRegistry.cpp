@@ -67,22 +67,22 @@ String CryptoAlgorithmRegistry::name(CryptoAlgorithmIdentifier identifier)
 {
     Locker locker { m_lock };
 
-    auto contructor = m_constructors.find(static_cast<unsigned>(identifier));
-    if (contructor == m_constructors.end())
+    auto constructor = m_constructors.find(static_cast<unsigned>(identifier));
+    if (constructor == m_constructors.end())
         return { };
 
-    return contructor->value.first.isolatedCopy();
+    return constructor->value.first.isolatedCopy();
 }
 
 RefPtr<CryptoAlgorithm> CryptoAlgorithmRegistry::create(CryptoAlgorithmIdentifier identifier)
 {
     Locker locker { m_lock };
 
-    auto contructor = m_constructors.find(static_cast<unsigned>(identifier));
-    if (contructor == m_constructors.end())
+    auto constructor = m_constructors.find(static_cast<unsigned>(identifier));
+    if (constructor == m_constructors.end())
         return nullptr;
 
-    return contructor->value.second();
+    return constructor->value.second();
 }
 
 void CryptoAlgorithmRegistry::registerAlgorithm(const String& name, CryptoAlgorithmIdentifier identifier, CryptoAlgorithmConstructor constructor)
