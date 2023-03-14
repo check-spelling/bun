@@ -34,7 +34,7 @@ namespace Zig {
  * - String properties are exposed (and cached) as JSStrings, instead of WTF::String.
  * - Helper functions like isEval and isConstructor.
  *
- * Note that this is not a heap allocated, garbage collected, JSCell. It must be stack allocated, as it doens't
+ * Note that this is not a heap allocated, garbage collected, JSCell. It must be stack allocated, as it doesn't
  * use any write barriers and rely on the GC to see the stored JSC object pointers on the stack.
  */
 class JSCStackFrame {
