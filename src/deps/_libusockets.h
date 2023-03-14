@@ -255,7 +255,7 @@ void uws_res_end(int ssl, uws_res_t *res, const char *data, size_t length,
                  bool close_connection);
 void uws_res_pause(int ssl, uws_res_t *res);
 void uws_res_resume(int ssl, uws_res_t *res);
-void uws_res_write_continwue(int ssl, uws_res_t *res);
+void uws_res_write_continue(int ssl, uws_res_t *res);
 void uws_res_write_status(int ssl, uws_res_t *res, const char *status,
                           size_t length);
 void uws_res_write_header(int ssl, uws_res_t *res, const char *key,
