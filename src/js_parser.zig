@@ -5500,7 +5500,7 @@ fn NewParser_(
 
             if (comptime !Environment.isRelease) {
                 // Enforce that scope locations are strictly increasing to help catch bugs
-                // where the pushed scopes are mistmatched between the first and second passes
+                // where the pushed scopes are mismatched between the first and second passes
                 if (p.scopes_in_order.items.len > 0) {
                     var last_i = p.scopes_in_order.items.len - 1;
                     while (p.scopes_in_order.items[last_i] == null and last_i > 0) {
