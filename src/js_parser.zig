@@ -9829,7 +9829,7 @@ fn NewParser_(
             return obj;
         }
 
-        // mmmm memmory allocation
+        // mmmm memory allocation
         pub inline fn m(self: *P, kind: anytype) *@TypeOf(kind) {
             return self.mm(@TypeOf(kind), kind);
         }
