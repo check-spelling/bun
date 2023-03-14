@@ -113,7 +113,7 @@ pub const NSType = enum(c_int) {
     ns_t_a6 = 38,
     /// Non-terminal DNAME (for IPv6)
     ns_t_dname = 39,
-    /// Kitchen sink (experimentatl)
+    /// Kitchen sink (experimental)
     ns_t_sink = 40,
     /// EDNS0 option (meta-RR)
     ns_t_opt = 41,
