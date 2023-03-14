@@ -336,7 +336,7 @@ db.loadExtension("myext");
 ```
 
 {% details summary="For macOS users" %}
-**MacOS users** By default, macOS ships with Apple's proprietary build of SQLite, which doesn't support extensions. To use extensions, you'll need to install a vanilla build of SQLite.
+**macOS users** By default, macOS ships with Apple's proprietary build of SQLite, which doesn't support extensions. To use extensions, you'll need to install a vanilla build of SQLite.
 
 ```bash
 $ brew install sqlite

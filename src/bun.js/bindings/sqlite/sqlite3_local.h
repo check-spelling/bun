@@ -6584,7 +6584,7 @@ SQLITE_API void *sqlite3_update_hook(
 ** individual database connections using the [sqlite3_open_v2()] interface
 ** with the [SQLITE_OPEN_SHAREDCACHE] flag.
 **
-** Note: This method is disabled on MacOS X 10.7 and iOS version 5.0
+** Note: This method is disabled on macOS X 10.7 and iOS version 5.0
 ** and will always return SQLITE_MISUSE. On those systems,
 ** shared cache mode should be enabled per-database connection via
 ** [sqlite3_open_v2()] with [SQLITE_OPEN_SHAREDCACHE].

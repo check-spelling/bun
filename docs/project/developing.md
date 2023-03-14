@@ -73,7 +73,7 @@ $ make dev
 $ bun-debug
 ```
 
-## MacOS
+## macOS
 
 Install LLVM 15 and `homebrew` dependencies:
 
