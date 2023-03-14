@@ -758,7 +758,7 @@ describe("readline.Interface", () => {
     assert.throws(
       () => fi.emit("data", "fooX"),
       e => {
-        console.log("ERRROR!", e);
+        console.log("ERROR!", e);
         assert.strictEqual(e, err);
         return true;
       },
