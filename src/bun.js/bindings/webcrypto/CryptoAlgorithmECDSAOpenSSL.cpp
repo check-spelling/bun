@@ -51,7 +51,7 @@ ExceptionOr<Vector<uint8_t>> CryptoAlgorithmECDSA::platformSign(const CryptoAlgo
         return Exception { OperationError };
 
     // We use ECDSA_do_sign rather than EVP API because the latter handles ECDSA signature in DER format
-    // while this function is supposed to return simply concatinated "r" and "s".
+    // while this function is supposed to return simply concatenated "r" and "s".
     auto sig = ECDSASigPtr(ECDSA_do_sign(digest->data(), digest->size(), ecKey));
     if (!sig)
         return Exception { OperationError };
