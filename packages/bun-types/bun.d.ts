@@ -44,7 +44,7 @@ declare module "bun" {
    *
    * @param {string} command The name of the executable or script
    * @param {string} options.PATH Overrides the PATH environment variable
-   * @param {string} options.cwd Limits the search to a particular directory in which to searc
+   * @param {string} options.cwd Limits the search to a particular directory in which to search
    *
    */
   export function which(
