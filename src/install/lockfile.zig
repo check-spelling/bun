@@ -504,7 +504,7 @@ pub const Tree = struct {
     }
 };
 
-/// This conditonally clones the lockfile with root packages marked as non-resolved
+/// This conditionally clones the lockfile with root packages marked as non-resolved
 /// that do not satisfy `Features`. The package may still end up installed even
 /// if it was e.g. in "devDependencies" and its a production install. In that case,
 /// it would be installed because another dependency or transient dependency needed it.
