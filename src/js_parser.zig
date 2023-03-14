@@ -16300,9 +16300,9 @@ fn NewParser_(
                     {
                         p.pushScopeForVisitPass(.block, data.body_loc) catch unreachable;
                         defer p.popScope();
-                        var old_is_inside_Swsitch = p.fn_or_arrow_data_visit.is_inside_switch;
+                        var old_is_inside_Switch = p.fn_or_arrow_data_visit.is_inside_switch;
                         p.fn_or_arrow_data_visit.is_inside_switch = true;
-                        defer p.fn_or_arrow_data_visit.is_inside_switch = old_is_inside_Swsitch;
+                        defer p.fn_or_arrow_data_visit.is_inside_switch = old_is_inside_Switch;
                         var i: usize = 0;
                         while (i < data.cases.len) : (i += 1) {
                             const case = data.cases[i];
