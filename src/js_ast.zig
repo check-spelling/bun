@@ -6274,7 +6274,7 @@ pub const Macro = struct {
                                     self.args.appendAssumeCapacity(Expr{ .data = .{ .e_boolean = .{ .value = false } }, .loc = value.loc });
                                 },
                                 .e_number => {
-                                    // Numbers are cooerced to booleans
+                                    // Numbers are coerced to booleans
                                     self.args.appendAssumeCapacity(Expr{ .data = .{ .e_boolean = .{ .value = value.data.e_number.value > 0.0 } }, .loc = value.loc });
                                 },
                                 // these ones are not statically analyzable so we just leave them in as-is
@@ -6311,7 +6311,7 @@ pub const Macro = struct {
                                     self.args.appendAssumeCapacity(invalid_value);
                                 },
                                 .e_boolean => {
-                                    // Booleans are cooerced to numbers
+                                    // Booleans are coerced to numbers
                                     self.args.appendAssumeCapacity(
                                         Expr{
                                             .data = .{
@@ -6332,7 +6332,7 @@ pub const Macro = struct {
                                 },
                                 // <number>123</number>
                                 .e_number => {
-                                    // Numbers are cooerced to booleans
+                                    // Numbers are coerced to booleans
                                     self.args.appendAssumeCapacity(value);
                                 },
                                 // these ones are not statically analyzable so we just leave them in as-is
@@ -6557,11 +6557,11 @@ pub const Macro = struct {
                                 .e_missing => {
                                     self.args.appendAssumeCapacity(invalid_value);
                                 },
-                                // null is cooerced to "null"
+                                // null is coerced to "null"
                                 .e_null => {
                                     self.args.appendAssumeCapacity(Expr{ .loc = value.loc, .data = .{ .e_string = &E.String.null } });
                                 },
-                                // undefined is cooerced to "undefined"
+                                // undefined is coerced to "undefined"
                                 .e_undefined => {
                                     self.args.appendAssumeCapacity(Expr{ .loc = value.loc, .data = .{ .e_string = &E.String.undefined } });
                                 },
