@@ -2839,7 +2839,7 @@ interface ResolveError {
 }
 
 declare var ResolveError: {
-  readonly protoype: ResolveError;
+  readonly prototype: ResolveError;
 };
 
 interface BuildError {
@@ -2849,7 +2849,7 @@ interface BuildError {
 }
 
 declare var BuildError: {
-  readonly protoype: BuildError;
+  readonly prototype: BuildError;
 };
 
 // Declare "static" methods in Error

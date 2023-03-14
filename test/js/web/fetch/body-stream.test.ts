@@ -16,7 +16,7 @@ var port = 0;
 
   for (let RequestPrototypeMixin of BodyMixin) {
     for (let useRequestObject of useRequestObjectValues) {
-      describe(`Request.prototoype.${RequestPrototypeMixin.name}() ${
+      describe(`Request.prototype.${RequestPrototypeMixin.name}() ${
         useRequestObject ? "fetch(req)" : "fetch(url)"
       }`, () => {
         const inputFixture = [
